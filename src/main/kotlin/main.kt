@@ -6,6 +6,7 @@ fun main() {
     val input = CharStreams.fromString(
         """
         "lite" {}
+        a int = 1
         
     """.trimIndent()
     )
