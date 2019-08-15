@@ -42,9 +42,10 @@ const val F = "false"
 
 const val Chr = "Char"
 const val Str = "String"
-const val Lst = "List"
-const val Set = "Set"
-const val Dic = "Map"
+const val Arr = "Array"
+const val Lst = "MutableList"
+const val Set = "MutableSet"
+const val Dic = "MutableMap"
 const val Stk = "Stack"
 
 const val BlockLeft = "{"

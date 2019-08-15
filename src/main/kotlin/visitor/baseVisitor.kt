@@ -27,6 +27,7 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         // printJSON(me.AllIDSet)
         CurrentIDSet.pop()
     }
+    // base -------------------------------------
 
     override fun visitProgram(context: LiteParser.ProgramContext) = run {
         val StatementList = context.statement()
@@ -180,6 +181,130 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         }
         val r = visit(context.expression()) as Result
         id + r.text
+    }
+
+    // type -------------------------------
+
+    override fun visitTypeType(context: LiteParser.TypeTypeContext) =
+        visit(context.getChild(0)) as str
+
+    override fun visitTypeReference(context: LiteParser.TypeReferenceContext) = run {
+        var obj = "ref "
+        if (context.typeNullable() != null) {
+            obj += visit(context.typeNullable())
+        } else if (context.typeNotNull() != null) {
+            obj += visit(context.typeNotNull())
+        }
+        obj
+    }
+
+    override fun visitTypeNullable(context: LiteParser.TypeNullableContext) =
+        visit(context.typeNotNull()) as str + "?"
+
+    override fun visitTypeTuple(context: LiteParser.TypeTupleContext) = run {
+        var obj = ""
+        obj += "("
+        context.typeType().forEachIndexed { i, v ->
+            if (i == 0) {
+                obj += visit(v)
+            } else {
+                obj += "," + visit(v)
+            }
+        }
+        obj += ")"
+        obj
+    }
+
+    override fun visitTypeArray(context: LiteParser.TypeArrayContext) =
+        "$Arr<${visit(context.typeType())}>"
+
+    override fun visitTypeList(context: LiteParser.TypeListContext) =
+        "$Lst<${visit(context.typeType())}>"
+
+    override fun visitTypeSet(context: LiteParser.TypeSetContext) =
+        "$Set<${visit(context.typeType())}>"
+
+    override fun visitTypeDictionary(context: LiteParser.TypeDictionaryContext) =
+        "$Dic<${visit(context.typeType(0))},${visit(context.typeType(1))}>"
+
+    override fun visitTypeStack(context: LiteParser.TypeStackContext) =
+        "$Stk<${visit(context.typeType())}>"
+
+    override fun visitTypePackage(context: LiteParser.TypePackageContext) = run {
+        var obj = ""
+        obj += visit(context.nameSpaceItem())
+        if (context.templateCall() != null) {
+            obj += visit(context.templateCall())
+        }
+        obj
+    }
+
+    override fun visitTypeFunction(context: LiteParser.TypeFunctionContext) = run {
+        var obj = ""
+        var fn: ()->Unit
+        val `in` = visit(context.typeFunctionParameterClause(0)) as str
+        var out = visit(context.typeFunctionParameterClause(1)) as str
+        if (context.t.type == LiteParser.Right_Arrow) {
+            if (out.length == 0) {
+                obj = "($`in`)->Unit"
+            } else {
+                if (out.indexOfFirst { it== ','  }>= 0) {
+                    out = "( $out )"
+                }
+//                if (context.y != null) {
+//                    out = "" IEnum "<" out ">"
+//                }
+                obj = "($`in`)->$out"
+            }
+        } else {
+            if (out.length == 0) {
+                obj = "($`in`)->Unit"
+            } else {
+                if (out.indexOfFirst { it== ','  }>= 0) {
+                    out = "( $out )"
+                }
+//                if (context.y != null) {
+//                    out = "" IEnum "<" out ">"
+//                }
+                obj = "($`in`)->$out"
+            }
+        }
+        obj
+    }
+
+    override fun visitTypeAny(context: LiteParser.TypeAnyContext) = Any
+
+    override fun visitTypeFunctionParameterClause(context: LiteParser.TypeFunctionParameterClauseContext) = run {
+        var obj = ""
+        for (i in 0 until context.typeType().size) {
+            val p = visit(context.typeType(i)) as str
+            if (i == 0) {
+                obj += p
+            } else {
+                obj += ", $p"
+            }
+        }
+        obj
+    }
+
+    override fun visitTypeBasic(context: LiteParser.TypeBasicContext) = when (context.t.type) {
+        LiteParser.TypeI8 -> I8
+        LiteParser.TypeU8 -> U8
+        LiteParser.TypeI16 -> I16
+        LiteParser.TypeU16 -> U16
+        LiteParser.TypeI32 -> I32
+        LiteParser.TypeU32 -> U32
+        LiteParser.TypeI64 -> I64
+        LiteParser.TypeU64 -> U64
+        LiteParser.TypeF32 -> F32
+        LiteParser.TypeF64 -> F64
+        LiteParser.TypeChr -> Chr
+        LiteParser.TypeStr -> Str
+        LiteParser.TypeBool -> Bool
+        LiteParser.TypeInt -> Int
+        LiteParser.TypeNum -> Num
+        LiteParser.TypeByte -> U8
+        else -> Any
     }
 }
 
