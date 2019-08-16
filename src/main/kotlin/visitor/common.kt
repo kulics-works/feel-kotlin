@@ -1,12 +1,12 @@
-class Result() {
-    var data: any? = null
+class Result {
+    var data: any = ""
     var text = ""
     var permission = ""
     var isVirtual = false
     var isDefine = false
 }
 
-class Namespace() {
+class Namespace {
     var name = ""
     var imports = ""
 }
@@ -14,6 +14,14 @@ class Namespace() {
 class TemplateItem {
     var Template = ""
     var Contract = ""
+}
+
+class Parameter {
+    var id = ""
+    var type = ""
+    var value = ""
+    var annotation = ""
+    var permission = ""
 }
 
 fun GetControlSub(id: str) =

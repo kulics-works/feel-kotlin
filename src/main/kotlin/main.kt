@@ -2,11 +2,14 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 fun main() {
-    print("hello lite")
+    println("hello lite")
     val input = CharStreams.fromString(
         """
         "lite" {}
         a int = 1
+        test(->) {
+        
+        }
         
     """.trimIndent()
     )
@@ -15,7 +18,8 @@ fun main() {
     val parser = LiteParser(tokens)
     val tree = parser.program() // parse
     val vt = LiteLangVisitor()
-    vt.visitProgram(tree)
+    val result = vt.visitProgram(tree)
+    println(result)
 }
 
 typealias any = Any
