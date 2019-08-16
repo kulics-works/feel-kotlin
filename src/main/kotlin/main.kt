@@ -11,7 +11,38 @@ fun main() {
             a = 1
             b = 2
             s = "hello " a " world"
+            ? a == 1 {
+            } _ {
+            }
+            a ? 1 {
+            } _ {
+            }
+            arr = {1,2,3,4,5}
+            i @ arr {
+                print(i)
+            }
+            i @ 0..<5 {
+                print(i)
+            }
+            @ a < b {
+                @..
+            }
         }
+        
+        pack -> {
+            name = "lite"
+            age = "2"
+        }
+        
+        me pack() {
+        
+        }
+        
+        software <- {
+            title() str
+            run(->)
+        }
+        
         
     """.trimIndent()
     )
