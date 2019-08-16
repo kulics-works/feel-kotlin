@@ -38,6 +38,15 @@ fun main() {
         
         }
         
+        me pack -> {
+            stop(->){}
+        }
+        
+        me pack -> software {
+            title(me.name) str
+            run(->) {}
+        }
+        
         software <- {
             title() str
             run(->)
