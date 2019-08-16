@@ -30,6 +30,14 @@ class DicEle {
     var text = ""
 }
 
+class Iterator {
+    var begin = Result()
+    var end = Result()
+    var step = Result()
+    var order = T
+    var attach = F
+}
+
 fun GetControlSub(id: str) =
     when (id) {
         "get" -> Pair(" get ", "get")
