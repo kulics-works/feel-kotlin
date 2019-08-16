@@ -2,13 +2,15 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 fun main() {
-    println("hello lite")
     val input = CharStreams.fromString(
         """
         "lite" {}
         a int = 1
+        c int : 2
         test(->) {
-        
+            a = 1
+            b = 2
+            s = "hello " a " world"
         }
         
     """.trimIndent()

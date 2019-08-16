@@ -24,6 +24,12 @@ class Parameter {
     var permission = ""
 }
 
+class DicEle {
+    var key = ""
+    var value = ""
+    var text = ""
+}
+
 fun GetControlSub(id: str) =
     when (id) {
         "get" -> Pair(" get ", "get")
