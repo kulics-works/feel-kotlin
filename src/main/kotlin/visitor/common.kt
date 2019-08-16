@@ -6,6 +6,25 @@ class Result() {
     var isDefine = false
 }
 
+class Namespace() {
+    var name = ""
+    var imports = ""
+}
+
+class TemplateItem {
+    var Template = ""
+    var Contract = ""
+}
+
+fun GetControlSub(id: str) =
+    when (id) {
+        "get" -> Pair(" get ", "get")
+        "set" -> Pair(" set ", "set")
+        "_get" -> Pair(" protected get ", "get")
+        "_set" -> Pair(" protected set ", "set")
+        else -> Pair("", "")
+    }
+
 fun <T> list<T>.peek(): T {
     return this[this.size - 1]
 }
@@ -17,6 +36,8 @@ fun <T> list<T>.push(new: T) {
 fun <T> list<T>.pop() {
     this.removeAt(this.size - 1)
 }
+
+fun <T> Any.to() = this as T
 
 const val Wrap = "\r\n"
 

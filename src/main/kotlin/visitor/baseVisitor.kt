@@ -1,3 +1,5 @@
+import LiteParser.*
+
 class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
     var selfID = ""
     var superID = ""
@@ -29,7 +31,7 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
     }
     // base -------------------------------------
 
-    override fun visitProgram(context: LiteParser.ProgramContext) = run {
+    override fun visitProgram(context: ProgramContext) = run {
         val StatementList = context.statement()
         var Result = ""
         for (item in StatementList) {
@@ -38,16 +40,16 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         Result
     }
 
-    override fun visitId(context: LiteParser.IdContext) =
+    override fun visitId(context: IdContext) =
         Result().apply {
             data = "var"
-            val first = visit(context.getChild(0)) as Result
+            val first = visit(context.getChild(0)).to<Result>()
             permission = first.permission
             text = first.text
             isVirtual = first.isVirtual
             if (context.childCount >= 2) {
                 for (i in 1 until context.childCount) {
-                    val other = visit(context.getChild(i)) as Result
+                    val other = visit(context.getChild(i)).to<Result>()
                     text += "_${other.text}"
                 }
             }
@@ -63,7 +65,7 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         }
 
 
-    override fun visitIdItem(context: LiteParser.IdItemContext) = Result().apply {
+    override fun visitIdItem(context: IdItemContext) = Result().apply {
         data = "var"
         if (context.typeBasic() != null) {
             permission = "public"
@@ -77,24 +79,24 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
             permission = "public"
             text += visit(context.linqKeyword())
             isVirtual = true
-        } else if (context.op.type == LiteParser.IDPublic) {
+        } else if (context.op.type == IDPublic) {
             permission = "public"
             text += context.op.text
             isVirtual = true
-        } else if (context.op.type == LiteParser.IDPrivate) {
+        } else if (context.op.type == IDPrivate) {
             permission = "protected"
             text += context.op.text
             isVirtual = true
         }
     }
 
-    override fun visitIdExpression(context: LiteParser.IdExpressionContext) =
+    override fun visitIdExpression(context: IdExpressionContext) =
         Result().apply {
             data = "var"
             if (context.idExprItem().size > 1) {
                 text = "("
                 context.idExprItem().forEachIndexed { i, v ->
-                    val subID = (visit(v) as Result).text
+                    val subID = visit(v).to<Result>().text
                     if (i != 0) {
                         text += ", " + subID
                     } else {
@@ -108,7 +110,7 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
                 }
                 text += ")"
             } else {
-                return (visit(context.idExprItem(0)) as Result).apply {
+                return visit(context.idExprItem(0)).to<Result>().apply {
                     if (has_id(text)) {
                         isDefine = true
                     } else {
@@ -118,27 +120,27 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
             }
         }
 
-    override fun visitIdExprItem(context: LiteParser.IdExprItemContext) = visit(context.getChild(0))
+    override fun visitIdExprItem(context: IdExprItemContext) = visit(context.getChild(0))
 
-    override fun visitBoolExpr(context: LiteParser.BoolExprContext) =
+    override fun visitBoolExpr(context: BoolExprContext) =
         Result().apply {
-            if (context.t.type == LiteParser.TrueLiteral) {
+            if (context.t.type == TrueLiteral) {
                 data = Bool
                 text = T
-            } else if (context.t.type == LiteParser.FalseLiteral) {
+            } else if (context.t.type == FalseLiteral) {
                 data = Bool
                 text = F
             }
         }
 
-    override fun visitAnnotationSupport(context: LiteParser.AnnotationSupportContext) =
+    override fun visitAnnotationSupport(context: AnnotationSupportContext) =
         visit(context.annotation()) as str
 
-    override fun visitAnnotation(context: LiteParser.AnnotationContext) = run {
+    override fun visitAnnotation(context: AnnotationContext) = run {
         var obj = ""
         var id = ""
         if (context.id() != null) {
-            id = "${(visit(context.id()) as Result).text}:"
+            id = "${visit(context.id()).to<Result>().text}:"
         }
 
         val r = visit(context.annotationList()) as str
@@ -146,7 +148,7 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitAnnotationList(context: LiteParser.AnnotationListContext) = run {
+    override fun visitAnnotationList(context: AnnotationListContext) = run {
         var obj = ""
         context.annotationItem().forEachIndexed { i, v ->
             if (i > 0) {
@@ -158,9 +160,9 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitAnnotationItem(context: LiteParser.AnnotationItemContext) = run {
+    override fun visitAnnotationItem(context: AnnotationItemContext) = run {
         var obj = ""
-        obj += (visit(context.id()) as Result).text
+        obj += visit(context.id()).to<Result>().text
         context.annotationAssign().forEachIndexed { i, v ->
             if (i > 0) {
                 obj += "," + visit(v)
@@ -174,13 +176,257 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitAnnotationAssign(context: LiteParser.AnnotationAssignContext) = run {
+    override fun visitAnnotationAssign(context: AnnotationAssignContext) = run {
         var id = ""
         if (context.id() != null) {
-            id = (visit(context.id()) as Result).text + "="
+            id = visit(context.id()).to<Result>().text + "="
         }
         val r = visit(context.expression()) as Result
         id + r.text
+    }
+
+    // function -----------------------------
+
+    fun ProcessFunctionSupport(items: List<FunctionSupportStatementContext>) = run {
+        var obj = ""
+        var content = ""
+        val lazy = mutableListOf<str>()
+        for (item in items) {
+            if (item.getChild(0) is UsingStatementContext) {
+                lazy.add("}")
+                content += "using" + visit(item) as str + BlockLeft + Wrap
+            } else {
+                content += visit(item)
+            }
+        }
+        if (lazy.size > 0) {
+            for (i in lazy.size - 1 downTo 0) {
+                content += BlockRight
+            }
+        }
+        obj += content
+        obj
+    }
+
+    // namespace ----------------------------
+
+    override fun visitStatement(context: StatementContext) = run {
+        var obj = ""
+        val ns = visit(context.exportStatement()) as Namespace
+        // import library
+        obj += "import Library;$Wrap"
+        obj += ns.imports + Wrap
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+        obj += "package ${ns.name + Wrap}"
+
+        var content = ""
+        add_current_set()
+        for (item in context.namespaceSupportStatement()) {
+            content += visit(item)
+        }
+        obj += content
+        delete_current_set()
+        obj += BlockRight + Wrap
+        obj
+    }
+
+    override fun visitExportStatement(context: ExportStatementContext) = run {
+        var name = context.TextLiteral().getText()
+        name = name.substring(1, name.length - 2)
+        name = name.replace("/", ".")
+        val obj = Namespace().apply {
+            this.name = name
+        }
+        for (item in context.importStatement()) {
+            obj.imports += visit(item) as str
+        }
+        obj
+    }
+
+    override fun visitImportStatement(context: ImportStatementContext) = run {
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+        var ns = context.TextLiteral().getText()
+        ns = ns.substring(1, ns.length - 2)
+        ns = ns.replace("/", ".")
+        if (context.call() != null) {
+            obj += "import ${visit(context.id()).to<Result>().text}.$ns"
+        } else if (context.id() != null) {
+            obj += "import ${visit(context.id()).to<Result>().text} as $ns"
+        } else {
+            obj += "import $ns"
+        }
+        obj += Wrap
+        obj
+    }
+
+    override fun visitNameSpaceItem(context: NameSpaceItemContext) = run {
+        var obj = ""
+        for (i in 0 until context.id().size) {
+            val id = visit(context.id(i)) as Result
+            if (i == 0) {
+                obj += id.text
+            } else {
+                obj += ".${id.text}"
+            }
+        }
+        obj
+    }
+
+    override fun visitName(context: NameContext) = run {
+        var obj = ""
+        for (i in 0 until context.id().size) {
+            val id = visit(context.id(i)) as Result
+            if (i == 0) {
+                obj += "" + id.text
+            } else {
+                obj += "." + id.text
+            }
+        }
+        obj
+    }
+
+    override fun visitEnumStatement(context: EnumStatementContext) = run {
+        var obj = ""
+        val id = visit(context.id()) as Result
+        var header = ""
+        val typ = visit(context.typeType()) as str
+        if (context.annotationSupport() != null) {
+            header += visit(context.annotationSupport())
+        }
+        header += id.permission + " enum " + id.text + ":" + typ
+        header += Wrap + BlockLeft + Wrap
+        for (i in 0 until context.enumSupportStatement().size) {
+            obj += visit(context.enumSupportStatement(i))
+        }
+        obj += BlockRight + Wrap
+        obj = header + obj
+        obj
+    }
+
+    override fun visitEnumSupportStatement(context: EnumSupportStatementContext) = run {
+        val id = visit(context.id()) as Result
+        if (context.integerExpr() != null) {
+            var op = ""
+            if (context.add() != null) {
+                op = visit(context.add()) as str
+            }
+            id.text += " = $op ${visit(context.integerExpr())}"
+        }
+        id.text + ","
+    }
+
+    override fun visitNamespaceFunctionStatement(context: NamespaceFunctionStatementContext) = run {
+        var id = visit(context.id()) as Result
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+        //# 泛型 #
+        var templateContract = ""
+        if (context.templateDefine() != null) {
+            var template = visit(context.templateDefine()) as TemplateItem
+            obj += template.Template
+            templateContract = template.Contract
+        }
+        //# 异步 #
+        var pout = visit(context.parameterClauseOut()) as str
+        if (context.t.type == LiteParser.Right_Flow) {
+            if (pout != "Unit") {
+                pout = pout
+            } else {
+                pout = "Unit"
+            }
+            obj += " ${id.permission} $templateContract async ${id.text} "
+        } else {
+//            ? context.y > < nil {
+//                ? pout > < "void" {
+//                pout = "" IEnum "<" pout ">"
+//            }
+//            }
+            obj += " ${id.permission} $templateContract ${id.text} "
+        }
+        add_current_set()
+        obj += visit(context.parameterClauseIn()).to<str>() + pout + Wrap + BlockLeft + Wrap
+        obj += ProcessFunctionSupport(context.functionSupportStatement())
+        delete_current_set()
+        obj += BlockRight + Wrap
+        obj
+    }
+
+    override fun visitNamespaceConstantStatement(context: NamespaceConstantStatementContext) = run {
+        val id = visit(context.id()) as Result
+        val expr = visit(context.expression()) as Result
+        var typ = ""
+        if (context.typeType() != null) {
+            typ = visit(context.typeType()) as str
+        } else {
+            typ = expr.data as str
+        }
+
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+
+        obj += "${id.permission} const val ${id.text}: $typ  =  ${expr.text} $Wrap"
+        obj
+    }
+
+    override fun visitNamespaceVariableStatement(context: NamespaceVariableStatementContext) = run {
+        var r1 = visit(context.id()) as Result
+        add_id(r1.text)
+        var isMutable = r1.isVirtual
+        var typ = ""
+        var r2: Result? = null
+        if (context.expression() != null) {
+            r2 = visit(context.expression()) as Result
+            typ = r2.data as str
+        }
+        if (context.typeType() != null) {
+            typ = visit(context.typeType()) as str
+        }
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+
+        obj += "${r1.permission} ${r1.text}:$typ "
+        if (r2 != null) {
+            obj += " = " + r2.text + Wrap
+        } else {
+            obj += Wrap
+        }
+        obj
+    }
+
+    override fun visitNamespaceControlStatement(context: NamespaceControlStatementContext) = run {
+        val r1 = visit(context.id()) as Result
+        add_id(r1.text)
+        var isMutable = r1.isVirtual
+        var typ = ""
+        typ = visit(context.typeType()) as str
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+
+        obj += " ${r1.permission} ${r1.text}:$typ"
+        if (context.expression() != null) {
+            val expr = visit(context.expression()) as Result
+            obj += "get() { return ${expr.text} } $Wrap set(v){ ${expr.text} = v }"
+        } else {
+            for (item in context.packageControlSubStatement()) {
+                val temp = visit(item) as Result
+                obj += temp.text
+            }
+        }
+        obj += BlockRight + Wrap
+        obj
     }
 
     // type -------------------------------
@@ -198,10 +444,10 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitTypeNullable(context: LiteParser.TypeNullableContext) =
+    override fun visitTypeNullable(context: TypeNullableContext) =
         visit(context.typeNotNull()) as str + "?"
 
-    override fun visitTypeTuple(context: LiteParser.TypeTupleContext) = run {
+    override fun visitTypeTuple(context: TypeTupleContext) = run {
         var obj = ""
         obj += "("
         context.typeType().forEachIndexed { i, v ->
@@ -215,22 +461,22 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitTypeArray(context: LiteParser.TypeArrayContext) =
+    override fun visitTypeArray(context: TypeArrayContext) =
         "$Arr<${visit(context.typeType())}>"
 
-    override fun visitTypeList(context: LiteParser.TypeListContext) =
+    override fun visitTypeList(context: TypeListContext) =
         "$Lst<${visit(context.typeType())}>"
 
-    override fun visitTypeSet(context: LiteParser.TypeSetContext) =
+    override fun visitTypeSet(context: TypeSetContext) =
         "$Set<${visit(context.typeType())}>"
 
-    override fun visitTypeDictionary(context: LiteParser.TypeDictionaryContext) =
+    override fun visitTypeDictionary(context: TypeDictionaryContext) =
         "$Dic<${visit(context.typeType(0))},${visit(context.typeType(1))}>"
 
-    override fun visitTypeStack(context: LiteParser.TypeStackContext) =
+    override fun visitTypeStack(context: TypeStackContext) =
         "$Stk<${visit(context.typeType())}>"
 
-    override fun visitTypePackage(context: LiteParser.TypePackageContext) = run {
+    override fun visitTypePackage(context: TypePackageContext) = run {
         var obj = ""
         obj += visit(context.nameSpaceItem())
         if (context.templateCall() != null) {
@@ -239,16 +485,16 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitTypeFunction(context: LiteParser.TypeFunctionContext) = run {
+    override fun visitTypeFunction(context: TypeFunctionContext) = run {
         var obj = ""
-        var fn: ()->Unit
+        var fn: () -> Unit
         val `in` = visit(context.typeFunctionParameterClause(0)) as str
         var out = visit(context.typeFunctionParameterClause(1)) as str
-        if (context.t.type == LiteParser.Right_Arrow) {
+        if (context.t.type == Right_Arrow) {
             if (out.length == 0) {
                 obj = "($`in`)->Unit"
             } else {
-                if (out.indexOfFirst { it== ','  }>= 0) {
+                if (out.indexOfFirst { it == ',' } >= 0) {
                     out = "( $out )"
                 }
 //                if (context.y != null) {
@@ -260,7 +506,7 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
             if (out.length == 0) {
                 obj = "($`in`)->Unit"
             } else {
-                if (out.indexOfFirst { it== ','  }>= 0) {
+                if (out.indexOfFirst { it == ',' } >= 0) {
                     out = "( $out )"
                 }
 //                if (context.y != null) {
@@ -272,9 +518,9 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitTypeAny(context: LiteParser.TypeAnyContext) = Any
+    override fun visitTypeAny(context: TypeAnyContext) = Any
 
-    override fun visitTypeFunctionParameterClause(context: LiteParser.TypeFunctionParameterClauseContext) = run {
+    override fun visitTypeFunctionParameterClause(context: TypeFunctionParameterClauseContext) = run {
         var obj = ""
         for (i in 0 until context.typeType().size) {
             val p = visit(context.typeType(i)) as str
@@ -287,23 +533,23 @@ class LiteLangVisitor() : LiteParserBaseVisitor<any>() {
         obj
     }
 
-    override fun visitTypeBasic(context: LiteParser.TypeBasicContext) = when (context.t.type) {
-        LiteParser.TypeI8 -> I8
-        LiteParser.TypeU8 -> U8
-        LiteParser.TypeI16 -> I16
-        LiteParser.TypeU16 -> U16
-        LiteParser.TypeI32 -> I32
-        LiteParser.TypeU32 -> U32
-        LiteParser.TypeI64 -> I64
-        LiteParser.TypeU64 -> U64
-        LiteParser.TypeF32 -> F32
-        LiteParser.TypeF64 -> F64
-        LiteParser.TypeChr -> Chr
-        LiteParser.TypeStr -> Str
-        LiteParser.TypeBool -> Bool
-        LiteParser.TypeInt -> Int
-        LiteParser.TypeNum -> Num
-        LiteParser.TypeByte -> U8
+    override fun visitTypeBasic(context: TypeBasicContext) = when (context.t.type) {
+        TypeI8 -> I8
+        TypeU8 -> U8
+        TypeI16 -> I16
+        TypeU16 -> U16
+        TypeI32 -> I32
+        TypeU32 -> U32
+        TypeI64 -> I64
+        TypeU64 -> U64
+        TypeF32 -> F32
+        TypeF64 -> F64
+        TypeChr -> Chr
+        TypeStr -> Str
+        TypeBool -> Bool
+        TypeInt -> Int
+        TypeNum -> Num
+        TypeByte -> U8
         else -> Any
     }
 }
