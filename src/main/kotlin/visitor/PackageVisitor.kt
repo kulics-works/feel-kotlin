@@ -64,10 +64,10 @@ open class PackageVisitor() : NamespaceVisitor() {
         }
 
         obj += "${r1.permission} var ${r1.text}:$typ"
-        if (r2 != null) {
-            obj += " = ${r2.text}$Wrap"
+        obj += if (r2 != null) {
+            " = ${r2.text}$Wrap"
         } else {
-            obj += Wrap
+            Wrap
         }
         obj
     }
