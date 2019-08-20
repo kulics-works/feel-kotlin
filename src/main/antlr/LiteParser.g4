@@ -4,7 +4,7 @@ options { tokenVocab=LiteLexer; }
 
 program: statement+;
 
-statement: (New_Line)* (annotationSupport)?
+statement: (New_Line)* (annotationSupport)?  
 exportStatement (New_Line)* namespaceSupportStatement*;
 
 // 导出命名空间
@@ -83,11 +83,11 @@ implementSupportStatement: implementFunctionStatement | implementControlStatemen
 implementFunctionStatement: (annotationSupport)? id (templateDefine)? left_paren parameterClauseIn t=(Right_Arrow|Right_Flow) y=At? New_Line*
 parameterClauseOut right_paren left_brace (functionSupportStatement)* right_brace end;
 // 定义控制
-implementControlStatement: (annotationSupport)? id left_paren expression? right_paren
+implementControlStatement: (annotationSupport)? id left_paren expression? right_paren 
  typeType (left_brace (packageControlSubStatement)+ right_brace)? end;
 
 // 重载
-overrideStatement: id parameterClauseSelf
+overrideStatement: id parameterClauseSelf 
  Right_Arrow New_Line* left_brace (overrideSupportStatement)* right_brace end;
 
 // 实现支持的语句
@@ -115,7 +115,7 @@ protocolControlStatement: (annotationSupport)? id left_paren right_paren typeTyp
 // 定义子方法
 protocolControlSubStatement: id;
 // 函数
-protocolFunctionStatement: (annotationSupport)? id (templateDefine)? left_paren parameterClauseIn
+protocolFunctionStatement: (annotationSupport)? id (templateDefine)? left_paren parameterClauseIn 
 t=(Right_Arrow|Right_Flow) y=At? New_Line* parameterClauseOut right_paren end;
 
 // 函数
@@ -186,7 +186,7 @@ loopJumpStatement: At Dot_Dot end;
 // 跳出当前循环
 loopContinueStatement: Dot_Dot At end;
 // 检查
-checkStatement:
+checkStatement: 
 Bang left_brace (functionSupportStatement)* right_brace (checkErrorStatement)* checkFinallyStatment end
 |Bang left_brace (functionSupportStatement)* right_brace (checkErrorStatement)+ end;
 // 定义检查变量
@@ -216,7 +216,7 @@ idExprItem: id | Discard;
 
 tupleExpression: expression (more expression)* ; // 元组
 // 基础表达式
-primaryExpression:
+primaryExpression: 
 id (templateCall)?
 | t=Discard
 | left_paren expression right_paren
@@ -239,6 +239,11 @@ linq // 联合查询
 | plusMinus // 正负处理
 | bitwiseNotExpression // 位运算取反
 | negate // 取反
+| judgeExpression // 判断表达式
+| loopExpression // 循环表达式
+| loopEachExpression // 集合循环表达式
+| checkExpression // 检查表达式
+| expression judgeCaseExpression // 条件判断表达式
 | expression op=Bang // 引用判断
 | expression op=Question // 可空判断
 | expression op=Left_Flow // 异步执行
@@ -305,9 +310,9 @@ dictionaryElement: expression Colon expression; // 字典元素
 
 slice: sliceFull | sliceStart | sliceEnd;
 
-sliceFull: expression Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression;
+sliceFull: expression Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression; 
 sliceStart: expression Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal);
-sliceEnd: Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression;
+sliceEnd: Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression; 
 
 nameSpaceItem: (id call New_Line?)* id;
 
@@ -315,12 +320,12 @@ name: id (call New_Line? id)* ;
 
 templateDefine: left_brack templateDefineItem (more templateDefineItem)* right_brack;
 
-templateDefineItem: id (id)?;
+templateDefineItem: id (id)?; 
 
 templateCall: left_brack typeType (more typeType)* right_brack;
 
 lambda: left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line* tupleExpression right_brace
-| left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line*
+| left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line* 
 (functionSupportStatement)* right_brace;
 
 lambdaIn: id (more id)*;
@@ -352,6 +357,32 @@ stringExpression: TextLiteral (stringExpressionElement)+;
 
 stringExpressionElement: expression TextLiteral;
 
+// 判断表达式
+judgeExpression: judgeExpressionIfStatement (judgeExpressionElseIfStatement)* judgeExpressionElseStatement;
+
+// else 判断
+judgeExpressionElseStatement: Discard left_brace (functionSupportStatement)* tupleExpression right_brace;
+// if 判断
+judgeExpressionIfStatement: Question Right_Arrow expression left_brace (functionSupportStatement)* tupleExpression right_brace;
+// else if 判断
+judgeExpressionElseIfStatement: expression left_brace (functionSupportStatement)* tupleExpression right_brace;
+
+// 条件判断表达式
+judgeCaseExpression: Question Right_Arrow (caseExpressionStatement)+;
+// 判断条件声明
+caseExpressionStatement: caseExprStatement (more caseExprStatement)* left_brace (functionSupportStatement)* tupleExpression right_brace;
+// 循环
+loopExpression: id At Right_Arrow iteratorStatement left_brace (functionSupportStatement)* tupleExpression right_brace loopElseExpression?;
+// 集合循环表达式
+loopEachExpression: (id Colon)? id At Right_Arrow expression left_brace (functionSupportStatement)* tupleExpression right_brace loopElseExpression?;
+// else 判断
+loopElseExpression: Discard left_brace (functionSupportStatement)* tupleExpression right_brace;
+// 检查
+checkExpression: 
+Bang Right_Arrow left_brace (functionSupportStatement)* tupleExpression right_brace (checkErrorExpression)* checkFinallyStatment
+|Bang Right_Arrow left_brace (functionSupportStatement)* tupleExpression right_brace (checkErrorExpression)+ ;
+// 错误处理
+checkErrorExpression: (id|id typeType) left_brace (functionSupportStatement)* tupleExpression right_brace;
 // 基础数据
 dataStatement:
 floatExpr
@@ -426,7 +457,7 @@ nilExpr: NilLiteral;
 boolExpr: t=TrueLiteral|t=FalseLiteral;
 
 judgeType: op=(Equal_Equal|Not_Equal);
-bitwise: (bitwiseAnd | bitwiseOr | bitwiseXor
+bitwise: (bitwiseAnd | bitwiseOr | bitwiseXor 
 | bitwiseLeftShift | bitwiseRightShift) (New_Line)?;
 bitwiseAnd: And And;
 bitwiseOr: Or Or;
