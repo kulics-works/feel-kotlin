@@ -7,7 +7,7 @@ fun main() {
         "lite" {}
         a int = 1
         c int : 2
-        test(->) {
+        test : (->) {
             a = 1
             b = 2
             s = "hello " a " world"
@@ -29,30 +29,22 @@ fun main() {
             }
         }
         
-        pack -> {
+        pack := me $ {
             name = "lite"
             age = "2"
+            stop : (->){}
+        } % () {
+        
+        } % software {
+            title : (me.name) str
+            run : (->) {}
         }
         
-        me pack() {
-        
+        software := % {
+            title () str
+            run (->)
         }
-        
-        me pack -> {
-            stop(->){}
-        }
-        
-        me pack -> software {
-            title(me.name) str
-            run(->) {}
-        }
-        
-        software <- {
-            title() str
-            run(->)
-        }
-        
-        
+
     """.trimIndent()
     )
     val lexer = LiteLexer(input)

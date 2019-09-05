@@ -88,23 +88,9 @@ open class ImplementVisitor() : PackageVisitor() {
         obj
     }
 
-    override fun visitOverrideStatement(context: OverrideStatementContext) = run {
-        val Self = visit(context.parameterClauseSelf()) as Parameter
-        selfID = Self.id
-        superID = visit(context.id()).to<Result>().text
-        var obj = ""
-        obj += "${Self.permission} class ${Self.type}$BlockLeft$Wrap"
-        for (item in context.overrideSupportStatement()) {
-            obj += visit(item)
-        }
-        obj += BlockRight + Wrap
-        selfID = ""
-        superID = ""
-        obj
-    }
-
     override fun visitOverrideFunctionStatement(context: OverrideFunctionStatementContext) = run {
-        val id = visit(context.id()) as Result
+        val id = visit(context.id(1)) as Result
+        this.superID = (visit(context.id(0)) as Result).text
         val isVirtual = "override"
         var obj = ""
         // # 泛型 #
@@ -137,11 +123,13 @@ open class ImplementVisitor() : PackageVisitor() {
         obj += ProcessFunctionSupport(context.functionSupportStatement())
         delete_current_set()
         obj += BlockRight + Wrap
+        this.superID = ""
         obj
     }
 
     override fun visitOverrideControlStatement(context: OverrideControlStatementContext) = run {
-        val r1 = visit(context.id()) as Result
+        val r1 = visit(context.id(1)) as Result
+        this.superID = (visit(context.id(0)) as Result).text
         val isMutable = true // # r1.isVirtual #
         val isVirtual = "override"
         var typ = ""
@@ -161,6 +149,26 @@ open class ImplementVisitor() : PackageVisitor() {
             }
         }
         obj += Wrap
+        this.superID = ""
+        obj
+    }
+
+    override fun visitImplementNewStatement(context: ImplementNewStatementContext) = run {
+        var obj = ""
+        val Self = visit(context.parameterClauseSelf()) as Parameter
+        this.selfID = Self.id
+        obj += "${Self.permission} class ${Self.type} $BlockLeft$Wrap"
+        obj += "public constructor"
+        // # 获取构造数据 #
+        add_current_set()
+        obj += visit(context.parameterClauseIn()) as str
+        if (context.expressionList() != null) {
+            obj += ":this(${visit(context.expressionList()).to<Result>().text})"
+        }
+        obj += BlockLeft + ProcessFunctionSupport(context.functionSupportStatement()) + BlockRight + Wrap
+        delete_current_set()
+        obj += BlockRight + Wrap
+        selfID = ""
         obj
     }
 }

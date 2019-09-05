@@ -6,20 +6,31 @@ open class PackageVisitor() : NamespaceVisitor() {
     override fun visitIncludeStatement(context: IncludeStatementContext) = visit(context.typeType())
 
     override fun visitPackageStatement(context: PackageStatementContext) = run {
-        val id = visit(context.id()) as Result
+        val id = visit(context.id(0)) as Result
+        if (context.id(1) != null) {
+            val Self = visit(context.id(1)) as Result
+            this.selfID = Self.text
+        }
         var obj = ""
         var extend = ""
 
-        for (item in context.packageSupportStatement()) {
-            if (item.getChild(0) is IncludeStatementContext) {
-                if (extend == "") {
-                    extend += visit(item)
-                } else {
-                    extend += "," + visit(item)
-                }
+        for (item in context.packageFieldStatement()) {
+            val r = visit(item) as Result
+            obj += r.text
+            extend += r.data
+        }
+        for (item in context.packageImplementStatement()) {
+            val r = visit(item) as Result
+            extend += if (extend == "") {
+                r.data
             } else {
-                obj += visit(item)
+                "," + r.data
             }
+            obj += r.text
+        }
+        for (item in context.packageNewStatement()) {
+            val r = visit(item) as str
+            obj += "public ${id.text} $r "
         }
         obj += BlockRight + Wrap
         var header = ""
@@ -43,7 +54,26 @@ open class PackageVisitor() : NamespaceVisitor() {
 
         header += templateContract + BlockLeft + Wrap
         obj = header + obj
+        this.selfID = ""
         obj
+    }
+
+    override fun visitPackageFieldStatement(context: PackageFieldStatementContext) = Result().apply {
+        var obj = ""
+        var extend = ""
+        for (item in context.packageSupportStatement()) {
+            if (item.getChild(0) is IncludeStatementContext) {
+                if (extend == "") {
+                    extend += visit(item)
+                } else {
+                    extend += "," + visit(item)
+                }
+            } else {
+                obj += visit(item)
+            }
+        }
+        data = extend
+        text = obj
     }
 
     override fun visitPackageVariableStatement(context: PackageVariableStatementContext) = run {
@@ -94,11 +124,18 @@ open class PackageVisitor() : NamespaceVisitor() {
         data = typ
     }
 
+    override fun visitPackageImplementStatement(context: PackageImplementStatementContext) = Result().apply {
+        var obj = ""
+        val extends = visit(context.typeType()) as str
+        for (item in context.implementSupportStatement()) {
+            obj += visit(item)
+        }
+        text = obj
+        data = extends
+    }
+
     override fun visitPackageNewStatement(context: PackageNewStatementContext) = run {
         var obj = ""
-        val Self = visit(context.parameterClauseSelf()) as Parameter
-        selfID = Self.id
-        obj += "${Self.permission} class ${Self.type} $BlockLeft$Wrap"
         obj += "public constructor"
         // # 获取构造数据 #
         add_current_set()
@@ -108,8 +145,6 @@ open class PackageVisitor() : NamespaceVisitor() {
         }
         obj += BlockLeft + ProcessFunctionSupport(context.functionSupportStatement()) + BlockRight + Wrap
         delete_current_set()
-        obj += BlockRight + Wrap
-        selfID = ""
         obj
     }
 
