@@ -17,7 +17,7 @@ fun main() {
             a ? 1 {
             } _ {
             }
-            arr = {1,2,3,4,5}
+            arr = {1;2;3;4;5}
             i @ arr {
                 print(i)
             }
@@ -29,7 +29,7 @@ fun main() {
             }
         }
         
-        pack := me $ {
+        pack := me % {
             name = "lite"
             age = "2"
             stop : (->){}
@@ -40,7 +40,7 @@ fun main() {
             run : (->) {}
         }
         
-        software := % {
+        software := _% {
             title () str
             run (->)
         }
