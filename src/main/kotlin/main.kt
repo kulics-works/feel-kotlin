@@ -21,7 +21,7 @@ fun main() {
             i @ arr {
                 print(i)
             }
-            i @ 0..<5 {
+            i @ 0++5 {
                 print(i)
             }
             @ a < b {

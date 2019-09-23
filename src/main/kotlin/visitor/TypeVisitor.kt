@@ -19,20 +19,6 @@ open class TypeVisitor() : ImplementVisitor() {
     override fun visitTypeNullable(context: TypeNullableContext) =
         visit(context.typeNotNull()) as str + "?"
 
-    override fun visitTypeTuple(context: TypeTupleContext) = run {
-        var obj = ""
-        obj += "("
-        context.typeType().forEachIndexed { i, v ->
-            if (i == 0) {
-                obj += visit(v)
-            } else {
-                obj += "," + visit(v)
-            }
-        }
-        obj += ")"
-        obj
-    }
-
     override fun visitTypeArray(context: TypeArrayContext) =
         "$Arr<${visit(context.typeType())}>"
 

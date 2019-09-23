@@ -206,8 +206,8 @@ checkErrorStatement: (id|id typeType) left_brace (functionSupportStatement)* rig
 checkFinallyStatment: Discard left_brace (functionSupportStatement)* right_brace;
 
 // 迭代器
-iteratorStatement: expression Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression
- Colon expression | expression Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression;
+iteratorStatement: expression op=(Add_Add|Sub_Sub) expression
+ Colon expression | expression op=(Add_Add|Sub_Sub) expression;
 
 // 定义变量
 variableStatement: idExpression typeType? Equal expression end;
@@ -225,7 +225,7 @@ idExprItem: id | Discard;
 
 tupleExpression: expression (more expression)* ; // 元组
 // 基础表达式
-primaryExpression: 
+primaryExpression:
 id (templateCall)?
 | t=Discard
 | left_paren expression right_paren
@@ -303,7 +303,7 @@ pkgAssignElement: name Equal expression; // 简化赋值元素
 
 listAssign: (expression end)* expression;
 
-setAssign: Colon expression (more Colon expression)* ;
+setAssign: Equal_Arrow expression (more Equal_Arrow expression)* ;
 
 dictionaryAssign: (dictionaryElement end)* dictionaryElement;
 
@@ -311,7 +311,7 @@ callAwait: Left_Flow expression; // 异步调用
 
 list: left_brace (expression end)* expression right_brace; // 列表
 
-set: left_brace (expression Equal_Arrow end)* expression Equal_Arrow right_brace; // 无序集合
+set: left_brace (Equal_Arrow expression end)* Equal_Arrow expression right_brace; // 无序集合
 
 dictionary:  left_brace (dictionaryElement end)* dictionaryElement right_brace; // 字典
 
@@ -319,9 +319,9 @@ dictionaryElement: expression Equal_Arrow expression; // 字典元素
 
 slice: sliceFull | sliceStart | sliceEnd;
 
-sliceFull: expression Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression; 
-sliceStart: expression Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal);
-sliceEnd: Dot_Dot op=(Less|Less_Equal|Greater|Greater_Equal) expression; 
+sliceFull: expression op=(Add_Add|Sub_Sub) expression;
+sliceStart: expression op=(Add_Add|Sub_Sub);
+sliceEnd: op=(Add_Add|Sub_Sub) expression;
 
 nameSpaceItem: (id call New_Line?)* id;
 
@@ -329,12 +329,12 @@ name: id (call New_Line? id)* ;
 
 templateDefine: left_brack templateDefineItem (more templateDefineItem)* right_brack;
 
-templateDefineItem: id (id)?; 
+templateDefineItem: id (id)?;
 
 templateCall: left_brack typeType (more typeType)* right_brack;
 
 lambda: left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line* tupleExpression right_brace
-| left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line* 
+| left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line*
 (functionSupportStatement)* right_brace;
 
 lambdaIn: id (more id)*;
@@ -387,7 +387,7 @@ loopEachExpression: (id Colon)? id At Right_Arrow expression left_brace (functio
 // else 判断
 loopElseExpression: Discard left_brace (functionSupportStatement)* tupleExpression right_brace;
 // 检查
-checkExpression: 
+checkExpression:
 Bang Right_Arrow left_brace (functionSupportStatement)* tupleExpression right_brace (checkErrorExpression)* checkFinallyStatment
 |Bang Right_Arrow left_brace (functionSupportStatement)* tupleExpression right_brace (checkErrorExpression)+ ;
 // 错误处理
@@ -410,7 +410,6 @@ integerExpr: NumberLiteral;
 // 类型
 typeNotNull:
 typeAny
-| typeTuple
 | typeArray
 | typeList
 | typeSet
@@ -428,14 +427,13 @@ typeType: typeNotNull | typeNullable | typeReference;
 typeReference: Bang (typeNotNull | typeNullable);
 typeNullable: Question typeNotNull;
 
-typeTuple: Less typeType (more typeType)+ Greater;
-typeArray: left_brack typeType Colon right_brack;
-typeList: left_brack typeType Semi right_brack;
-typeSet: left_brack typeType Equal_Arrow right_brack;
-typeDictionary: left_brack typeType Equal_Arrow typeType right_brack;
-typeStack: left_brack Dot_Dot typeType right_brack;
-typeQueue: left_brack typeType Dot_Dot right_brack;
-typeChannel: left_brack typeType Dot_Dot_Dot right_brack;
+typeArray: left_brack right_brack Colon typeType;
+typeList: left_brack right_brack typeType;
+typeSet: left_brack right_brack Equal_Arrow typeType;
+typeDictionary: left_brack right_brack typeType Equal_Arrow typeType;
+typeStack: left_brack right_brack Greater typeType;
+typeQueue: left_brack right_brack Less typeType;
+typeChannel: left_brack right_brack Less Less typeType;
 typePackage: nameSpaceItem (templateCall)? ;
 typeFunction: left_paren typeFunctionParameterClause t=(Right_Arrow|Right_Flow) y=At? New_Line* typeFunctionParameterClause right_paren;
 typeAny: TypeAny;
