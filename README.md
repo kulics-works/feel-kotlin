@@ -1,1 +1,1 @@
-# lite-kotlin
+# k-kotlin
