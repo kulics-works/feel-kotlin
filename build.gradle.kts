@@ -16,7 +16,7 @@ plugins {
     kotlin("jvm") version "1.3.41"
 }
 
-group = "org.lite"
+group = "com.kulics.k"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -24,17 +24,12 @@ repositories {
 }
 
 dependencies {
-    antlr("org.antlr:antlr4:4.7.2")
     implementation(kotlin("stdlib-jdk8"))
+    antlr("org.antlr:antlr4:4.7.2")
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
-}
-
-tasks.generateGrammarSource {
-    maxHeapSize = "64m"
-    arguments = arguments + listOf("-visitor", "-no-listener")
 }
 
 allprojects {

@@ -1,3 +1,7 @@
+package com.kulics.k.visitor
+
+import com.kulics.k.*
+
 class Result {
     var data: any = ""
     var text = ""

@@ -1,4 +1,8 @@
-import LiteParser.*
+package com.kulics.k.visitor
+
+import antlr.generate.*
+import antlr.generate.KParser.*
+import com.kulics.k.*
 
 open class NamespaceVisitor() : LogicVisitor() {
     // namespace ----------------------------

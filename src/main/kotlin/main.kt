@@ -1,57 +1,62 @@
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
+package com.kulics.k
+
+import antlr.generate.KLexer
+import antlr.generate.KParser
+import com.kulics.k.visitor.KLangVisitor
+import org.antlr.v4.runtime.CharStreams
+import org.antlr.v4.runtime.CommonTokenStream
 
 fun main() {
     val input = CharStreams.fromString(
         """
-        "lite" {}
-        a int = 1
-        c int : 2
+        demo . {}
+        a! : 1
+        c : 2
         test : (->) {
             a = 1
             b = 2
-            s = "hello " a " world"
+            s = "hello " + a +  " world"
             ? a == 1 {
             } _ {
             }
-            a ? 1 {
+            ? a : 1 {
             } _ {
             }
-            arr = {1;2;3;4;5}
-            i @ arr {
+            arr : {1;2;3;4;5}
+            @ i : arr {
                 print(i)
             }
-            i @ 0++5 {
+            @ i : 0~5 {
                 print(i)
             }
             @ a < b {
-                @..
+                ~@
             }
         }
         
-        pack := me % {
-            name = "lite"
-            age = "2"
-            stop : (->){}
-        } % () {
-        
-        } % software {
-            title : (me.name) str
+        pack : software \/ $ me {
+            name : "k"
+            age : "2"
+            stop : (->){
+            }
+            title! str
             run : (->) {}
+        } \/ (->$) {
+        
         }
         
-        software := _% {
-            title () str
+        software : $$ {
+            title! str 
             run (->)
         }
 
     """.trimIndent()
     )
-    val lexer = LiteLexer(input)
+    val lexer = KLexer(input)
     val tokens = CommonTokenStream(lexer)
-    val parser = LiteParser(tokens)
+    val parser = KParser(tokens)
     val tree = parser.program() // parse
-    val vt = LiteLangVisitor()
+    val vt = KLangVisitor()
     val result = vt.visitProgram(tree)
     println(result)
 }

@@ -1,4 +1,0 @@
-
-class LiteLangVisitor():TypeVisitor(){
-
-}

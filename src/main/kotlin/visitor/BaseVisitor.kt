@@ -1,6 +1,10 @@
-import LiteParser.*
+package com.kulics.k.visitor
 
-open class BaseVisitor() : LiteParserBaseVisitor<any>() {
+import antlr.generate.*
+import antlr.generate.KParser.*
+import com.kulics.k.*
+
+open class BaseVisitor() : KParserBaseVisitor<any>() {
     var selfID = ""
     var superID = ""
     var setID = ""
