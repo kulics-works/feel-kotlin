@@ -5,29 +5,51 @@ import antlr.generate.KParser.*
 import com.kulics.k.*
 
 open class ExpressionVisitor() : BaseVisitor() {
-// expression ---------------------
-
-    override fun visitVariableStatement(context: VariableStatementContext) = run {
+    // expression ---------------------
+    override fun visitVarStatement(context: VarStatementContext): any {
         var obj = ""
-        val r1 = visit(context.idExpression()) as Result
-        val r2 = visit(context.expression()) as Result
-        obj = if (context.typeType() != null) {
-            val Type = visit(context.typeType()) as str
-            "${r1.text}:$Type = ${r2.text}$Wrap"
-        } else {
-            if (r1.isDefine || r1.text == selfID || r1.text == superID || r1.text == setID) {
-                "${r1.text} = ${r2.text}$Wrap"
+        for ((i, v) in context.varId().withIndex()) {
+            if (i != 0) {
+                obj += "," + visit(v)
             } else {
-                "var ${r1.text} = ${r2.text}$Wrap"
+                obj += visit(v)
             }
         }
-        obj
+        if (context.varId().count() > 1) {
+            obj = "(" + obj + ")"
+        }
+        var r2 = visit(context.tupleExpression()) as Result
+        obj += " = ${r2.text + Wrap}"
+        return obj
+    }
+
+    override fun visitBindStatement(context: BindStatementContext): any {
+        var obj = ""
+        for ((i, v) in context.constId().withIndex()) {
+            if (i != 0) {
+                obj += "," + visit(v)
+            } else {
+                obj += visit(v)
+            }
+        }
+        if (context.constId().count() > 1) {
+            obj = "(" + obj + ")"
+        }
+        var r2 = visit(context.tupleExpression()) as Result
+        obj += " = ${r2.text + Wrap}"
+        return obj
     }
 
     override fun visitVariableDeclaredStatement(context: VariableDeclaredStatementContext) = run {
         val Type = visit(context.typeType()) as str
-        val r = visit(context.idExpression()) as Result
+        val r = visit(context.id()) as Result
         "var ${r.text}:$Type$Wrap"
+    }
+
+    override fun visitConstantDeclaredStatement(context: ConstantDeclaredStatementContext) = run {
+        val Type = visit(context.typeType()) as str
+        val r = visit(context.id()) as Result
+        "val ${r.text}:$Type$Wrap"
     }
 
     override fun visitAssignStatement(context: AssignStatementContext) = run {
@@ -49,7 +71,11 @@ open class ExpressionVisitor() : BaseVisitor() {
                 var op = visit(context.getChild(1))
 
                 when (context.getChild(1)) {
-                    is JudgeContext -> {
+                    is CompareContext -> {
+                        // # todo 如果左右不是bool类型值 ， 报错 #
+                        data = Bool
+                    }
+                    is LogicContext -> {
                         // # todo 如果左右不是bool类型值 ， 报错 #
                         data = Bool
                     }
@@ -152,8 +178,6 @@ open class ExpressionVisitor() : BaseVisitor() {
 
     override fun visitWave(context: WaveContext) = context.op.text
 
-    override fun visitJudgeType(context: JudgeTypeContext) = context.op.text
-
     override fun visitBitwise(context: BitwiseContext) = visit(context.getChild(0)) as str
 
     override fun visitBitwiseAnd(context: BitwiseAndContext) = "&"
@@ -166,18 +190,27 @@ open class ExpressionVisitor() : BaseVisitor() {
 
     override fun visitBitwiseRightShift(context: BitwiseRightShiftContext) = ">>"
 
-    override fun visitJudge(context: JudgeContext) = when (val txt = context.op.text) {
-        "><" -> "!="
-        "&" -> "&&"
-        "|" -> "||"
-        else -> txt
+
+    override fun visitCompare(context: CompareContext): any {
+        return when (context.op.type) {
+            Not_Equal -> "!="
+            else -> context.op.text
+        }
+    }
+
+    override fun visitLogic(context: LogicContext): any {
+        return when (context.op.type) {
+            And -> "&&"
+            Or -> "||"
+            else -> context.op.text
+        }
     }
 
     override fun visitAdd(context: AddContext) = context.op.text
 
     override fun visitMul(context: MulContext) = context.op.text
 
-    override fun visitPow(context: PowContext) = context.op.text
+    override fun visitPow(context: PowContext) = "^"
 
     override fun visitPrimaryExpression(context: PrimaryExpressionContext): any {
         if (context.childCount == 1) {
@@ -275,22 +308,6 @@ open class ExpressionVisitor() : BaseVisitor() {
     override fun visitSliceFull(context: SliceFullContext) = run {
         var order = ""
         var attach = ""
-        when (context.op.text) {
-            "<=" -> {
-                order = "true"
-                attach = "true"
-            }
-            "<" -> {
-                order = "true"
-            }
-            ">=" -> {
-                order = "false"
-                attach = "true"
-            }
-            ">" -> {
-                order = "false"
-            }
-        }
         val expr1 = visit(context.expression(0)) as Result
         val expr2 = visit(context.expression(1)) as Result
         ".slice(${expr1.text}..${expr2.text})"
@@ -299,22 +316,6 @@ open class ExpressionVisitor() : BaseVisitor() {
     override fun visitSliceStart(context: SliceStartContext) = run {
         var order = ""
         var attach = ""
-        when (context.op.text) {
-            "<=" -> {
-                order = "true"
-                attach = "true"
-            }
-            "<" -> {
-                order = "true"
-            }
-            ">=" -> {
-                order = "false"
-                attach = "true"
-            }
-            ">" -> {
-                order = "false"
-            }
-        }
         val expr = visit(context.expression()) as Result
         ".slice(${expr.text}..)"
     }
@@ -322,22 +323,6 @@ open class ExpressionVisitor() : BaseVisitor() {
     override fun visitSliceEnd(context: SliceEndContext) = run {
         var order = ""
         var attach = "false"
-        when (context.op.text) {
-            "<=" -> {
-                order = "true"
-                attach = "true"
-            }
-            "<" -> {
-                order = "true"
-            }
-            ">=" -> {
-                order = "false"
-                attach = "true"
-            }
-            ">" -> {
-                order = "false"
-            }
-        }
         val expr = visit(context.expression()) as Result
         ".slice(..${expr.text})"
     }
@@ -357,7 +342,6 @@ open class ExpressionVisitor() : BaseVisitor() {
         text += when {
             context.pkgAssign() != null -> visit(context.pkgAssign())
             context.listAssign() != null -> visit(context.listAssign())
-            context.setAssign() != null -> visit(context.setAssign())
             context.dictionaryAssign() != null -> visit(context.dictionaryAssign())
             else -> ""
         }
@@ -387,21 +371,6 @@ open class ExpressionVisitor() : BaseVisitor() {
     }
 
     override fun visitListAssign(context: ListAssignContext) = run {
-        var obj = ""
-        obj += "{"
-        for (i in 0 until context.expression().size) {
-            val r = visit(context.expression(i)) as Result
-            obj += if (i == 0) {
-                r.text
-            } else {
-                ", ${r.text}"
-            }
-        }
-        obj += "}"
-        obj
-    }
-
-    override fun visitSetAssign(context: SetAssignContext) = run {
         var obj = ""
         obj += "{"
         for (i in 0 until context.expression().size) {
@@ -480,24 +449,6 @@ open class ExpressionVisitor() : BaseVisitor() {
         text = "mutableListOf($text)"
     }
 
-    override fun visitSet(context: SetContext) = Result().apply {
-        var type = Any
-        for (i in 0 until context.expression().size) {
-            val r = visit(context.expression(i)) as Result
-            if (i == 0) {
-                type = r.data as str
-                text += r.text
-            } else {
-                if (type != r.data as str) {
-                    type = Any
-                }
-                text += "," + r.text
-            }
-        }
-        data = "$Set<$type>"
-        text = "mutableSetOf($text)"
-    }
-
     override fun visitDictionary(context: DictionaryContext) = Result().apply {
         var key = Any
         var value = Any
@@ -530,19 +481,44 @@ open class ExpressionVisitor() : BaseVisitor() {
         text = "${r1.text} to ${r2.text}"
     }
 
-    override fun visitStringExpression(context: StringExpressionContext) = Result().apply {
-        text = "\"${context.TextLiteral().text.removePrefix("\"").removeSuffix("\"")}"
-        for (item in context.stringExpressionElement()) {
-            text += visit(item)
+    override fun visitStringExpr(context: StringExprContext): any {
+        var text = ""
+        if (context.stringTemplate().count() == 0) {
+            for (v in context.stringContent()) {
+                text += visit(v) as str
+            }
+            return "\"${text}\""
+        } else {
+            text = "(new System.Text.StringBuilder()"
+            // 去除前后一个元素
+            for (i in 1..context.childCount - 2) {
+                var v = context.getChild(i)
+                var r = visit(context.getChild(i)) as str
+                if (v is StringContentContext) {
+                    text += ".Append(\"${r}\")"
+                } else {
+                    text += r
+                }
+            }
+            text += ").to_str()"
+            return text
         }
-        text += "\""
     }
 
+    override fun visitStringContent(context: StringContentContext): any {
+        if (context.TextLiteral().text == "\\$") {
+            return "$"
+        }
+        return context.TextLiteral().text
+    }
 
-    override fun visitStringExpressionElement(context: StringExpressionElementContext) = run {
-        val r = visit(context.expression()) as Result
-        val text = context.TextLiteral().text.removePrefix("\"").removeSuffix("\"")
-        "\${ ${r.text} } $text "
+    override fun visitStringTemplate(context: StringTemplateContext): any {
+        var text =  ""
+        for (v in  context.expression()) {
+            var r = visit(v) as Result
+            text += ".Append(${r.text})"
+        }
+        return text
     }
 
     override fun visitDataStatement(context: DataStatementContext) = Result().apply {
@@ -559,9 +535,9 @@ open class ExpressionVisitor() : BaseVisitor() {
                 data = I32
                 text = visit(context.integerExpr()) as str
             }
-            context.t.type == TextLiteral -> {
+            context.stringExpr() != null -> {
                 data = Str
-                text = context.TextLiteral().text
+                text = visit(context.stringExpr()) as str
             }
             context.t.type == CharLiteral -> {
                 data = Chr
@@ -578,10 +554,12 @@ open class ExpressionVisitor() : BaseVisitor() {
         }
     }
 
-    override fun visitFloatExpr(context: FloatExprContext) =
-        visit(context.integerExpr(0)).to<str>() + "." + visit(context.integerExpr(1)).to<str>()
+    override fun visitFloatExpr(context: FloatExprContext):any {
+        var number = context.FloatLiteral().text
+        return number
+    }
 
-    override fun visitIntegerExpr(context: IntegerExprContext) = context.NumberLiteral().text
+    override fun visitIntegerExpr(context: IntegerExprContext) = context.getChild(0).text
 
     override fun visitFunctionExpression(context: FunctionExpressionContext) = Result().apply {
         // # 异步 #

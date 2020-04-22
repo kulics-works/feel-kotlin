@@ -8,6 +8,10 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
     var selfID = ""
     var superID = ""
     var setID = ""
+    var getID = ""
+    var selfPropertyID = ""
+    var selfPropertyContent = listOf<str>()
+    var selfPropertyVariable = false
 
     var AllIDSet = mutableSetOf<str>()
     var CurrentIDSet = mutableListOf(mutableSetOf<str>())
@@ -84,10 +88,11 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
                 selfID -> "this"
                 superID -> "base"
                 setID -> "value"
+                getID -> "_" + selfPropertyID
                 else -> text
             }
+            rootID = text
         }
-
 
     override fun visitIdItem(context: IdItemContext) = Result().apply {
         data = "var"
@@ -100,11 +105,6 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
             context.typeAny() != null -> {
                 permission = "public"
                 text += context.typeAny().text
-                isVirtual = true
-            }
-            context.linqKeyword() != null -> {
-                permission = "public"
-                text += visit(context.linqKeyword())
                 isVirtual = true
             }
             context.op.type == IDPublic -> {
@@ -120,37 +120,71 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
         }
     }
 
-    override fun visitIdExpression(context: IdExpressionContext) =
-        Result().apply {
-            data = "var"
-            if (context.idExprItem().size > 1) {
-                text = "("
-                context.idExprItem().forEachIndexed { i, v ->
-                    val subID = visit(v).to<Result>().text
-                    text += if (i != 0) {
-                        ", $subID"
-                    } else {
-                        subID
-                    }
-                    if (has_id(subID)) {
-                        isDefine = true
-                    } else {
-                        add_id(subID)
-                    }
-                }
-                text += ")"
+//    override fun visitIdExpression(context: IdExpressionContext) =
+//        Result().apply {
+//            data = "var"
+//            if (context.idExprItem().size > 1) {
+//                text = "("
+//                context.idExprItem().forEachIndexed { i, v ->
+//                    val subID = visit(v).to<Result>().text
+//                    text += if (i != 0) {
+//                        ", $subID"
+//                    } else {
+//                        subID
+//                    }
+//                    if (has_id(subID)) {
+//                        isDefine = true
+//                    } else {
+//                        add_id(subID)
+//                    }
+//                }
+//                text += ")"
+//            } else {
+//                return visit(context.idExprItem(0)).to<Result>().apply {
+//                    if (has_id(text)) {
+//                        isDefine = true
+//                    } else {
+//                        add_id(text)
+//                    }
+//                }
+//            }
+//        }
+
+    override fun visitVarId(context: VarIdContext): any {
+        if (context.Discard() != null) {
+            return "_"
+        } else {
+            var id = (visit(context.id()) as Result).text
+            if (has_id(id)) {
+                // r.isDefine = true
             } else {
-                return visit(context.idExprItem(0)).to<Result>().apply {
-                    if (has_id(text)) {
-                        isDefine = true
-                    } else {
-                        add_id(text)
-                    }
-                }
+                add_id(id)
+            }
+            if (context.typeType() != null) {
+                return visit(context.typeType()) as str + " " + id
+            } else {
+                return "val " + id
             }
         }
+    }
 
-    override fun visitIdExprItem(context: IdExprItemContext) = visit(context.getChild(0))
+    override fun visitConstId(context: ConstIdContext): any {
+        if (context.Discard() != null) {
+            return "_"
+        } else {
+            var id = (visit(context.id()) as Result).text
+            if (has_id(id)) {
+                // r.isDefine = true
+            } else {
+                add_id(id)
+            }
+            if (context.typeType() != null) {
+                return visit(context.typeType()) as str + " " + id
+            } else {
+                return "var " + id
+            }
+        }
+    }
 
     override fun visitBoolExpr(context: BoolExprContext) =
         Result().apply {
@@ -193,25 +227,16 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
     override fun visitAnnotationItem(context: AnnotationItemContext) = run {
         var obj = ""
         obj += visit(context.id()).to<Result>().text
-        context.annotationAssign().forEachIndexed { i, v ->
-            obj += if (i > 0) {
-                "," + visit(v)
-            } else {
-                "(" + visit(v)
-            }
-        }
-        if (context.annotationAssign().size > 0) {
-            obj += ")"
-        }
+//        context.forEachIndexed { i, v ->
+//            obj += if (i > 0) {
+//                "," + visit(v)
+//            } else {
+//                "(" + visit(v)
+//            }
+//        }
+//        if (context.annotationAssign().size > 0) {
+//            obj += ")"
+//        }
         obj
-    }
-
-    override fun visitAnnotationAssign(context: AnnotationAssignContext) = run {
-        var id = ""
-        if (context.id() != null) {
-            id = visit(context.id()).to<Result>().text + "="
-        }
-        val r = visit(context.expression()) as Result
-        id + r.text
     }
 }

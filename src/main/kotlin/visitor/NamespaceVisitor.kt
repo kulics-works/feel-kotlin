@@ -32,9 +32,7 @@ open class NamespaceVisitor() : LogicVisitor() {
     }
 
     override fun visitExportStatement(context: ExportStatementContext) = run {
-        var name = context.TextLiteral().text
-        name = name.substring(1, name.length - 2)
-        name = name.replace("/", ".")
+        var name = visit(context.nameSpaceItem()) as str
         val obj = Namespace().apply {
             this.name = name
         }
@@ -49,11 +47,9 @@ open class NamespaceVisitor() : LogicVisitor() {
         if (context.annotationSupport() != null) {
             obj += visit(context.annotationSupport())
         }
-        var ns = context.TextLiteral().text
-        ns = ns.substring(1, ns.length - 2)
-        ns = ns.replace("/", ".")
+        var ns = visit(context.nameSpaceItem()) as str
         obj += when {
-            context.call() != null -> "import ${visit(context.id()).to<Result>().text}.$ns"
+            context.Discard() != null -> "import ${visit(context.id()).to<Result>().text}.$ns"
             context.id() != null -> "import ${visit(context.id()).to<Result>().text} as $ns"
             else -> "import $ns"
         }
@@ -91,7 +87,8 @@ open class NamespaceVisitor() : LogicVisitor() {
         var obj = ""
         val id = visit(context.id()) as Result
         var header = ""
-        val typ = visit(context.typeType()) as str
+//        val typ = visit(context.typeType()) as str
+        val typ = "Int"
         if (context.annotationSupport() != null) {
             header += visit(context.annotationSupport())
         }
@@ -200,30 +197,4 @@ open class NamespaceVisitor() : LogicVisitor() {
         }
         obj
     }
-
-    override fun visitNamespaceControlStatement(context: NamespaceControlStatementContext) = run {
-        val r1 = visit(context.id()) as Result
-        add_id(r1.text)
-        var isMutable = r1.isVirtual
-        var typ = ""
-        typ = visit(context.typeType()) as str
-        var obj = ""
-        if (context.annotationSupport() != null) {
-            obj += visit(context.annotationSupport())
-        }
-
-        obj += " ${r1.permission} ${r1.text}:$typ"
-        if (context.expression() != null) {
-            val expr = visit(context.expression()) as Result
-            obj += "get() { return ${expr.text} } $Wrap set(v){ ${expr.text} = v }"
-        } else {
-            for (item in context.packageControlSubStatement()) {
-                val temp = visit(item) as Result
-                obj += temp.text
-            }
-        }
-        obj += BlockRight + Wrap
-        obj
-    }
-
 }

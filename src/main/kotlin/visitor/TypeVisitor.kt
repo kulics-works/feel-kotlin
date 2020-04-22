@@ -7,18 +7,8 @@ import com.kulics.k.*
 open class TypeVisitor() : ImplementVisitor() {
     // type -------------------------------
 
-    override fun visitTypeType(context: LiteParser.TypeTypeContext) =
+    override fun visitTypeType(context: TypeTypeContext) =
         visit(context.getChild(0)) as str
-
-    override fun visitTypeReference(context: LiteParser.TypeReferenceContext) = run {
-        var obj = "ref "
-        obj += when {
-            context.typeNullable() != null -> visit(context.typeNullable())
-            context.typeNotNull() != null -> visit(context.typeNotNull())
-            else -> ""
-        }
-        obj
-    }
 
     override fun visitTypeNullable(context: TypeNullableContext) =
         visit(context.typeNotNull()) as str + "?"

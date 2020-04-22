@@ -8,6 +8,7 @@ class Result {
     var permission = ""
     var isVirtual = false
     var isDefine = false
+    var rootID = ""
 }
 
 class Namespace {

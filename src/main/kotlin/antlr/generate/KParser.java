@@ -1,4 +1,4 @@
-// Generated from KParser.g4 by ANTLR 4.7.2
+// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/kotlin/antlr/KParser.g4 by ANTLR 4.8
 package antlr.generate;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class KParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -243,6 +243,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitProgram(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
@@ -304,6 +312,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitStatement(this);
@@ -427,6 +443,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_exportStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterExportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitExportStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitExportStatement(this);
 			else return visitor.visitChildren(this);
@@ -520,6 +544,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_importStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterImportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitImportStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitImportStatement(this);
@@ -661,6 +693,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_namespaceSupportStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterNamespaceSupportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitNamespaceSupportStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitNamespaceSupportStatement(this);
 			else return visitor.visitChildren(this);
@@ -774,6 +814,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeAliasStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeAliasStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeAliasStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeAliasStatement(this);
 			else return visitor.visitChildren(this);
@@ -838,6 +886,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeRedefineStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeRedefineStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeRedefineStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeRedefineStatement(this);
@@ -904,6 +960,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeTagStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeTagStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeTagStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeTagStatement(this);
 			else return visitor.visitChildren(this);
@@ -964,6 +1028,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_enumStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterEnumStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitEnumStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitEnumStatement(this);
@@ -1070,6 +1142,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_enumSupportStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterEnumSupportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitEnumSupportStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitEnumSupportStatement(this);
 			else return visitor.visitChildren(this);
@@ -1144,6 +1224,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_namespaceVariableStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterNamespaceVariableStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitNamespaceVariableStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitNamespaceVariableStatement(this);
@@ -1261,6 +1349,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_namespaceConstantStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterNamespaceConstantStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitNamespaceConstantStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitNamespaceConstantStatement(this);
@@ -1415,6 +1511,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_namespaceFunctionStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterNamespaceFunctionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitNamespaceFunctionStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitNamespaceFunctionStatement(this);
@@ -1663,6 +1767,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_packageStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageStatement(this);
 			else return visitor.visitChildren(this);
@@ -1843,6 +1955,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_packageStaticStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageStaticStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageStaticStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageStaticStatement(this);
 			else return visitor.visitChildren(this);
@@ -1904,6 +2024,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_packageStaticSupportStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageStaticSupportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageStaticSupportStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageStaticSupportStatement(this);
@@ -1981,6 +2109,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_packageStaticVariableStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageStaticVariableStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageStaticVariableStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageStaticVariableStatement(this);
@@ -2098,6 +2234,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_packageStaticConstantStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageStaticConstantStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageStaticConstantStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageStaticConstantStatement(this);
@@ -2252,6 +2396,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_packageStaticFunctionStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageStaticFunctionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageStaticFunctionStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageStaticFunctionStatement(this);
@@ -2476,6 +2628,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_packageFieldStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageFieldStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageFieldStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageFieldStatement(this);
 			else return visitor.visitChildren(this);
@@ -2585,6 +2745,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_packageSupportStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageSupportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageSupportStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageSupportStatement(this);
 			else return visitor.visitChildren(this);
@@ -2676,6 +2844,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_includeStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterIncludeStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitIncludeStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitIncludeStatement(this);
 			else return visitor.visitChildren(this);
@@ -2754,6 +2930,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_packageNewStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageNewStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageNewStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageNewStatement(this);
@@ -2899,6 +3083,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_packageVariableStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageVariableStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageVariableStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageVariableStatement(this);
 			else return visitor.visitChildren(this);
@@ -3015,6 +3207,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_packageConstantStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageConstantStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageConstantStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageConstantStatement(this);
@@ -3169,6 +3369,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_packageFunctionStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageFunctionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageFunctionStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageFunctionStatement(this);
@@ -3396,6 +3604,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_packageControlSubStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageControlSubStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageControlSubStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageControlSubStatement(this);
 			else return visitor.visitChildren(this);
@@ -3488,6 +3704,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_packageEventStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPackageEventStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPackageEventStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPackageEventStatement(this);
 			else return visitor.visitChildren(this);
@@ -3570,6 +3794,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_implementStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterImplementStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitImplementStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitImplementStatement(this);
@@ -3727,6 +3959,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_overrideVariableStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterOverrideVariableStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitOverrideVariableStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitOverrideVariableStatement(this);
 			else return visitor.visitChildren(this);
@@ -3858,6 +4098,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_overrideConstantStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterOverrideConstantStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitOverrideConstantStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitOverrideConstantStatement(this);
@@ -4029,6 +4277,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_overrideFunctionStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterOverrideFunctionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitOverrideFunctionStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitOverrideFunctionStatement(this);
@@ -4276,6 +4532,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_protocolStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterProtocolStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitProtocolStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitProtocolStatement(this);
@@ -4607,6 +4871,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_protocolSubStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterProtocolSubStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitProtocolSubStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitProtocolSubStatement(this);
 			else return visitor.visitChildren(this);
@@ -4703,6 +4975,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_protocolSupportStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterProtocolSupportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitProtocolSupportStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitProtocolSupportStatement(this);
 			else return visitor.visitChildren(this);
@@ -4772,6 +5052,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_protocolVariableStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterProtocolVariableStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitProtocolVariableStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitProtocolVariableStatement(this);
@@ -4922,6 +5210,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_protocolFunctionStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterProtocolFunctionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitProtocolFunctionStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitProtocolFunctionStatement(this);
@@ -5113,6 +5409,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterFunctionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitFunctionStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitFunctionStatement(this);
@@ -5310,6 +5614,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_returnStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterReturnStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitReturnStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitReturnStatement(this);
 			else return visitor.visitChildren(this);
@@ -5362,6 +5674,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_returnAwaitStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterReturnAwaitStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitReturnAwaitStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitReturnAwaitStatement(this);
@@ -5417,6 +5737,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_yieldReturnStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterYieldReturnStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitYieldReturnStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitYieldReturnStatement(this);
 			else return visitor.visitChildren(this);
@@ -5460,6 +5788,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_yieldBreakStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterYieldBreakStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitYieldBreakStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitYieldBreakStatement(this);
@@ -5509,6 +5845,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parameterClauseIn; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterParameterClauseIn(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitParameterClauseIn(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitParameterClauseIn(this);
@@ -5579,6 +5923,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parameterClauseOut; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterParameterClauseOut(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitParameterClauseOut(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitParameterClauseOut(this);
@@ -5653,6 +6005,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parameter; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterParameter(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitParameter(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitParameter(this);
@@ -5806,6 +6166,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionSupportStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterFunctionSupportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitFunctionSupportStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitFunctionSupportStatement(this);
@@ -6014,6 +6382,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_judgeCaseStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeCaseStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeCaseStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeCaseStatement(this);
 			else return visitor.visitChildren(this);
@@ -6091,6 +6467,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_caseStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCaseStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCaseStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCaseStatement(this);
@@ -6172,6 +6556,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_caseExprStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCaseExprStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCaseExprStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCaseExprStatement(this);
@@ -6277,6 +6669,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_judgeStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeStatement(this);
 			else return visitor.visitChildren(this);
@@ -6374,6 +6774,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_judgeElseStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeElseStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeElseStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeElseStatement(this);
 			else return visitor.visitChildren(this);
@@ -6443,6 +6851,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_judgeIfStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeIfStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeIfStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeIfStatement(this);
@@ -6514,6 +6930,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_judgeElseIfStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeElseIfStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeElseIfStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeElseIfStatement(this);
@@ -6595,6 +7019,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loopStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopStatement(this);
@@ -6715,6 +7147,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_loopEachStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopEachStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopEachStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopEachStatement(this);
 			else return visitor.visitChildren(this);
@@ -6834,6 +7274,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_loopCaseStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopCaseStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopCaseStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopCaseStatement(this);
 			else return visitor.visitChildren(this);
@@ -6916,6 +7364,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_loopElseStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopElseStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopElseStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopElseStatement(this);
 			else return visitor.visitChildren(this);
@@ -6975,6 +7431,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_loopJumpStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopJumpStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopJumpStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopJumpStatement(this);
 			else return visitor.visitChildren(this);
@@ -7016,6 +7480,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loopContinueStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopContinueStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopContinueStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopContinueStatement(this);
@@ -7078,6 +7550,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_checkStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCheckStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCheckStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCheckStatement(this);
@@ -7218,6 +7698,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_usingStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterUsingStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitUsingStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitUsingStatement(this);
 			else return visitor.visitChildren(this);
@@ -7297,6 +7785,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_checkErrorStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCheckErrorStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCheckErrorStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCheckErrorStatement(this);
@@ -7381,6 +7877,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_checkFinallyStatment; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCheckFinallyStatment(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCheckFinallyStatment(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCheckFinallyStatment(this);
 			else return visitor.visitChildren(this);
@@ -7443,6 +7947,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_checkReportStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCheckReportStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCheckReportStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCheckReportStatement(this);
 			else return visitor.visitChildren(this);
@@ -7495,6 +8007,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_iteratorStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterIteratorStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitIteratorStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitIteratorStatement(this);
@@ -7566,6 +8086,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_variableDeclaredStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterVariableDeclaredStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitVariableDeclaredStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitVariableDeclaredStatement(this);
 			else return visitor.visitChildren(this);
@@ -7613,6 +8141,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_constantDeclaredStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterConstantDeclaredStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitConstantDeclaredStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitConstantDeclaredStatement(this);
@@ -7669,6 +8205,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_channelAssignStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterChannelAssignStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitChannelAssignStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitChannelAssignStatement(this);
@@ -7733,6 +8277,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_varStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterVarStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitVarStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitVarStatement(this);
@@ -7809,6 +8361,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_bindStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBindStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBindStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBindStatement(this);
 			else return visitor.visitChildren(this);
@@ -7877,6 +8437,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_assignStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterAssignStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitAssignStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitAssignStatement(this);
 			else return visitor.visitChildren(this);
@@ -7922,6 +8490,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_expressionStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterExpressionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitExpressionStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitExpressionStatement(this);
 			else return visitor.visitChildren(this);
@@ -7964,6 +8540,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_varId; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterVarId(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitVarId(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitVarId(this);
@@ -8050,6 +8634,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_constId; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterConstId(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitConstId(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitConstId(this);
@@ -8140,6 +8732,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_tupleExpression; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTupleExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTupleExpression(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTupleExpression(this);
 			else return visitor.visitChildren(this);
@@ -8215,6 +8815,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_primaryExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPrimaryExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPrimaryExpression(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPrimaryExpression(this);
@@ -8431,6 +9039,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitExpression(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitExpression(this);
@@ -8808,6 +9424,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_callExpression; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallExpression(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallExpression(this);
 			else return visitor.visitChildren(this);
@@ -8934,6 +9558,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_tuple; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTuple(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTuple(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTuple(this);
 			else return visitor.visitChildren(this);
@@ -9008,6 +9640,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_expressionList; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterExpressionList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitExpressionList(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitExpressionList(this);
 			else return visitor.visitChildren(this);
@@ -9062,6 +9702,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_annotationSupport; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterAnnotationSupport(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitAnnotationSupport(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitAnnotationSupport(this);
 			else return visitor.visitChildren(this);
@@ -9114,6 +9762,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_annotation; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterAnnotation(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitAnnotation(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitAnnotation(this);
@@ -9176,6 +9832,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_annotationList; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterAnnotationList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitAnnotationList(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitAnnotationList(this);
 			else return visitor.visitChildren(this);
@@ -9236,6 +9900,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_annotationItem; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterAnnotationItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitAnnotationItem(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitAnnotationItem(this);
@@ -9298,6 +9970,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_callFunc; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallFunc(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallFunc(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallFunc(this);
 			else return visitor.visitChildren(this);
@@ -9354,6 +10034,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_callChannel; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallChannel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallChannel(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallChannel(this);
 			else return visitor.visitChildren(this);
@@ -9402,6 +10090,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_callElement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallElement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallElement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallElement(this);
@@ -9471,6 +10167,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_callPkg; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallPkg(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallPkg(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallPkg(this);
@@ -9547,6 +10251,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_callNew; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallNew(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallNew(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallNew(this);
 			else return visitor.visitChildren(this);
@@ -9622,6 +10334,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_orElse; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterOrElse(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitOrElse(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitOrElse(this);
 			else return visitor.visitChildren(this);
@@ -9663,6 +10383,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeConversion; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeConversion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeConversion(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeConversion(this);
 			else return visitor.visitChildren(this);
@@ -9701,6 +10429,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeCheck; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeCheck(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeCheck(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeCheck(this);
@@ -9748,6 +10484,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_pkgAssign; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPkgAssign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPkgAssign(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPkgAssign(this);
@@ -9808,6 +10552,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_pkgAssignElement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPkgAssignElement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPkgAssignElement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPkgAssignElement(this);
 			else return visitor.visitChildren(this);
@@ -9856,6 +10608,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listAssign; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterListAssign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitListAssign(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitListAssign(this);
@@ -9921,6 +10681,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_dictionaryAssign; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterDictionaryAssign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitDictionaryAssign(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitDictionaryAssign(this);
 			else return visitor.visitChildren(this);
@@ -9977,6 +10745,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_callAwait; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallAwait(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallAwait(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallAwait(this);
 			else return visitor.visitChildren(this);
@@ -10015,6 +10791,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_callAsync; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCallAsync(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCallAsync(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCallAsync(this);
@@ -10068,6 +10852,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_list; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitList(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitList(this);
@@ -10143,6 +10935,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_dictionary; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterDictionary(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitDictionary(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitDictionary(this);
 			else return visitor.visitChildren(this);
@@ -10212,6 +11012,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_dictionaryElement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterDictionaryElement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitDictionaryElement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitDictionaryElement(this);
 			else return visitor.visitChildren(this);
@@ -10261,6 +11069,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_slice; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterSlice(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitSlice(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitSlice(this);
@@ -10323,6 +11139,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_sliceFull; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterSliceFull(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitSliceFull(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitSliceFull(this);
 			else return visitor.visitChildren(this);
@@ -10375,6 +11199,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_sliceStart; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterSliceStart(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitSliceStart(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitSliceStart(this);
 			else return visitor.visitChildren(this);
@@ -10426,6 +11258,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_sliceEnd; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterSliceEnd(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitSliceEnd(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitSliceEnd(this);
@@ -10488,6 +11328,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_nameSpaceItem; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterNameSpaceItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitNameSpaceItem(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitNameSpaceItem(this);
@@ -10568,6 +11416,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_name; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitName(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitName(this);
 			else return visitor.visitChildren(this);
@@ -10640,6 +11496,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_templateDefine; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTemplateDefine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTemplateDefine(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTemplateDefine(this);
 			else return visitor.visitChildren(this);
@@ -10701,6 +11565,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_templateDefineItem; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTemplateDefineItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTemplateDefineItem(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTemplateDefineItem(this);
@@ -10786,6 +11658,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_templateCall; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTemplateCall(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTemplateCall(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTemplateCall(this);
 			else return visitor.visitChildren(this);
@@ -10860,6 +11740,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_lambda; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLambda(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLambda(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLambda(this);
@@ -11015,6 +11903,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_lambdaIn; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLambdaIn(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLambdaIn(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLambdaIn(this);
 			else return visitor.visitChildren(this);
@@ -11068,6 +11964,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_pkgAnonymous; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPkgAnonymous(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPkgAnonymous(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPkgAnonymous(this);
 			else return visitor.visitChildren(this);
@@ -11118,6 +12022,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_pkgAnonymousAssign; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPkgAnonymousAssign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPkgAnonymousAssign(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPkgAnonymousAssign(this);
@@ -11183,6 +12095,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_pkgAnonymousAssignElement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPkgAnonymousAssignElement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPkgAnonymousAssignElement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPkgAnonymousAssignElement(this);
@@ -11266,6 +12186,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterFunctionExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitFunctionExpression(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitFunctionExpression(this);
@@ -11379,6 +12307,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_plusMinus; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPlusMinus(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPlusMinus(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPlusMinus(this);
 			else return visitor.visitChildren(this);
@@ -11420,6 +12356,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_negate; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterNegate(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitNegate(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitNegate(this);
 			else return visitor.visitChildren(this);
@@ -11460,6 +12404,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bitwiseNotExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwiseNotExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwiseNotExpression(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwiseNotExpression(this);
@@ -11515,6 +12467,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_linq; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLinq(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLinq(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLinq(this);
@@ -11602,6 +12562,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_linqHeadItem; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLinqHeadItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLinqHeadItem(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLinqHeadItem(this);
 			else return visitor.visitChildren(this);
@@ -11662,6 +12630,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_linqItem; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLinqItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLinqItem(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLinqItem(this);
@@ -11765,6 +12741,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_judgeExpression; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeExpression(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeExpression(this);
 			else return visitor.visitChildren(this);
@@ -11832,6 +12816,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_judgeExpressionElseStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeExpressionElseStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeExpressionElseStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeExpressionElseStatement(this);
@@ -11908,6 +12900,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_judgeExpressionIfStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeExpressionIfStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeExpressionIfStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeExpressionIfStatement(this);
@@ -11987,6 +12987,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_judgeExpressionElseIfStatement; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeExpressionElseIfStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeExpressionElseIfStatement(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeExpressionElseIfStatement(this);
 			else return visitor.visitChildren(this);
@@ -12054,6 +13062,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_judgeCaseExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterJudgeCaseExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitJudgeCaseExpression(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitJudgeCaseExpression(this);
@@ -12141,6 +13157,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_caseExpressionStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCaseExpressionStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCaseExpressionStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCaseExpressionStatement(this);
@@ -12242,6 +13266,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loopExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopExpression(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopExpression(this);
@@ -12362,6 +13394,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_loopEachExpression; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopEachExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopEachExpression(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopEachExpression(this);
 			else return visitor.visitChildren(this);
@@ -12475,6 +13515,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_loopElseExpression; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLoopElseExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLoopElseExpression(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLoopElseExpression(this);
 			else return visitor.visitChildren(this);
@@ -12556,6 +13604,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_checkExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCheckExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCheckExpression(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCheckExpression(this);
@@ -12710,6 +13766,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_checkErrorExpression; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCheckErrorExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCheckErrorExpression(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCheckErrorExpression(this);
 			else return visitor.visitChildren(this);
@@ -12801,6 +13865,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_dataStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterDataStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitDataStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitDataStatement(this);
@@ -12916,6 +13988,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_stringExpr; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterStringExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitStringExpr(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitStringExpr(this);
 			else return visitor.visitChildren(this);
@@ -12981,6 +14061,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_stringContent; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterStringContent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitStringContent(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitStringContent(this);
 			else return visitor.visitChildren(this);
@@ -13027,6 +14115,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_stringTemplate; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterStringTemplate(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitStringTemplate(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitStringTemplate(this);
@@ -13102,6 +14198,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_rawStringExpr; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterRawStringExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitRawStringExpr(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitRawStringExpr(this);
 			else return visitor.visitChildren(this);
@@ -13173,6 +14277,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_rawStringContent; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterRawStringContent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitRawStringContent(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitRawStringContent(this);
 			else return visitor.visitChildren(this);
@@ -13223,6 +14335,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_rawStringTemplate; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterRawStringTemplate(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitRawStringTemplate(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitRawStringTemplate(this);
@@ -13310,6 +14430,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_floatExpr; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterFloatExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitFloatExpr(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitFloatExpr(this);
 			else return visitor.visitChildren(this);
@@ -13346,6 +14474,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_integerExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterIntegerExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitIntegerExpr(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitIntegerExpr(this);
@@ -13421,6 +14557,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeNotNull; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeNotNull(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeNotNull(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeNotNull(this);
@@ -13537,6 +14681,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeType; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeType(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeType(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeType(this);
 			else return visitor.visitChildren(this);
@@ -13609,6 +14761,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeNullable; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeNullable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeNullable(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeNullable(this);
 			else return visitor.visitChildren(this);
@@ -13653,6 +14813,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeArray; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeArray(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeArray(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeArray(this);
@@ -13702,6 +14870,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeList; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeList(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeList(this);
 			else return visitor.visitChildren(this);
@@ -13748,6 +14924,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeSet; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeSet(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeSet(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeSet(this);
@@ -13800,6 +14984,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeDictionary; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeDictionary(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeDictionary(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeDictionary(this);
 			else return visitor.visitChildren(this);
@@ -13848,6 +15040,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeStack; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeStack(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeStack(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeStack(this);
@@ -13898,6 +15098,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeQueue; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeQueue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeQueue(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeQueue(this);
 			else return visitor.visitChildren(this);
@@ -13946,6 +15154,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeChannel; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeChannel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeChannel(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeChannel(this);
@@ -13997,6 +15213,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typePackage; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypePackage(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypePackage(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypePackage(this);
@@ -14093,6 +15317,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeFunction; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeFunction(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeFunction(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeFunction(this);
 			else return visitor.visitChildren(this);
@@ -14179,6 +15411,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeAny; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeAny(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeAny(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeAny(this);
 			else return visitor.visitChildren(this);
@@ -14223,6 +15463,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeFunctionParameterClause; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeFunctionParameterClause(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeFunctionParameterClause(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeFunctionParameterClause(this);
@@ -14298,6 +15546,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_typeBasic; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterTypeBasic(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitTypeBasic(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitTypeBasic(this);
@@ -14446,6 +15702,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_nilExpr; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterNilExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitNilExpr(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitNilExpr(this);
 			else return visitor.visitChildren(this);
@@ -14481,6 +15745,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_boolExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBoolExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBoolExpr(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBoolExpr(this);
@@ -14545,6 +15817,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bitwise; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwise(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwise(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwise(this);
@@ -14625,6 +15905,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_bitwiseAnd; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwiseAnd(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwiseAnd(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwiseAnd(this);
 			else return visitor.visitChildren(this);
@@ -14658,6 +15946,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bitwiseOr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwiseOr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwiseOr(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwiseOr(this);
@@ -14693,6 +15989,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_bitwiseNot; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwiseNot(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwiseNot(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwiseNot(this);
 			else return visitor.visitChildren(this);
@@ -14726,6 +16030,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bitwiseXor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwiseXor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwiseXor(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwiseXor(this);
@@ -14761,6 +16073,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_bitwiseLeftShift; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwiseLeftShift(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwiseLeftShift(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwiseLeftShift(this);
 			else return visitor.visitChildren(this);
@@ -14795,6 +16115,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_bitwiseRightShift; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterBitwiseRightShift(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitBitwiseRightShift(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitBitwiseRightShift(this);
 			else return visitor.visitChildren(this);
@@ -14828,6 +16156,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_compareCombine; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCompareCombine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCompareCombine(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCompareCombine(this);
@@ -14869,6 +16205,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_compare; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCompare(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCompare(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCompare(this);
@@ -14926,6 +16270,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_logic; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLogic(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLogic(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLogic(this);
@@ -14989,6 +16341,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_assign; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterAssign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitAssign(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitAssign(this);
 			else return visitor.visitChildren(this);
@@ -15045,6 +16405,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_add; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterAdd(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitAdd(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitAdd(this);
@@ -15104,6 +16472,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_mul; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterMul(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitMul(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitMul(this);
 			else return visitor.visitChildren(this);
@@ -15159,6 +16535,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_pow; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterPow(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitPow(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitPow(this);
 			else return visitor.visitChildren(this);
@@ -15206,6 +16590,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_call; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterCall(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitCall(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitCall(this);
 			else return visitor.visitChildren(this);
@@ -15251,6 +16643,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_wave; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterWave(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitWave(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitWave(this);
 			else return visitor.visitChildren(this);
@@ -15286,6 +16686,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_id; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterId(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitId(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitId(this);
@@ -15330,6 +16738,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_idItem; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterIdItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitIdItem(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitIdItem(this);
@@ -15414,6 +16830,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_end; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterEnd(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitEnd(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitEnd(this);
 			else return visitor.visitChildren(this);
@@ -15460,6 +16884,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_more; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterMore(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitMore(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitMore(this);
@@ -15513,6 +16945,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_left_brace; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLeft_brace(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLeft_brace(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLeft_brace(this);
@@ -15569,6 +17009,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_right_brace; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterRight_brace(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitRight_brace(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitRight_brace(this);
 			else return visitor.visitChildren(this);
@@ -15618,6 +17066,14 @@ public class KParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_left_paren; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLeft_paren(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLeft_paren(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLeft_paren(this);
 			else return visitor.visitChildren(this);
@@ -15651,6 +17107,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_right_paren; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterRight_paren(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitRight_paren(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitRight_paren(this);
@@ -15689,6 +17153,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_left_brack; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterLeft_brack(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitLeft_brack(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitLeft_brack(this);
@@ -15744,6 +17216,14 @@ public class KParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_right_brack; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).enterRight_brack(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof KParserListener ) ((KParserListener)listener).exitRight_brack(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof KParserVisitor ) return ((KParserVisitor<? extends T>)visitor).visitRight_brack(this);

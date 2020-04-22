@@ -7,29 +7,25 @@ import com.kulics.k.*
 open class PackageVisitor() : NamespaceVisitor() {
     // package -------------------------------
 
-    override fun visitIncludeStatement(context: IncludeStatementContext) = visit(context.typeType())
+    override fun visitIncludeStatement(context: IncludeStatementContext): any {
+        return visit(context.typeType())
+    }
 
-    override fun visitPackageStatement(context: PackageStatementContext) = run {
-        val id = visit(context.id(0)) as Result
-        if (context.id(1) != null) {
-            val Self = visit(context.id(1)) as Result
-            this.selfID = Self.text
-        }
+    override fun visitPackageStatement(context: PackageStatementContext): any {
+        val id = visit(context.id()) as Result
         var obj = ""
-        var extend = ""
+        var extend = listOf<str>()
 
-        for (item in context.packageFieldStatement()) {
+        for (item in context.includeStatement()) {
+            val r = visit(item) as str
+            extend += r
+        }
+        for (item in context.packageStaticStatement()) {
             val r = visit(item) as Result
             obj += r.text
-            extend += r.data
         }
-        for (item in context.packageImplementStatement()) {
+        for (item in context.packageFieldStatement()) {
             val r = visit(item) as Result
-            extend += if (extend == "") {
-                r.data
-            } else {
-                "," + r.data
-            }
             obj += r.text
         }
         for (item in context.packageNewStatement()) {
@@ -52,35 +48,73 @@ open class PackageVisitor() : NamespaceVisitor() {
             header += template
         }
 
-        if (extend.isNotEmpty()) {
-            header += ":$extend"
+        if (extend.count() > 0) {
+            var temp = extend[0]
+            for (i in 1..extend.count() - 1) {
+                temp += "," + extend[i]
+            }
+            header += ":" + temp
         }
 
         header += templateContract + BlockLeft + Wrap
         obj = header + obj
         this.selfID = ""
-        obj
+        return obj
+    }
+
+    override fun visitPackageStaticStatement(context: PackageStaticStatementContext) = Result().apply {
+        var obj = ""
+        for (item in context.packageStaticSupportStatement()) {
+            obj += visit(item)
+        }
+        text = obj
     }
 
     override fun visitPackageFieldStatement(context: PackageFieldStatementContext) = Result().apply {
         var obj = ""
-        var extend = ""
-        for (item in context.packageSupportStatement()) {
-            if (item.getChild(0) is IncludeStatementContext) {
-                if (extend == "") {
-                    extend += visit(item)
-                } else {
-                    extend += "," + visit(item)
-                }
-            } else {
-                obj += visit(item)
-            }
+        if (context.id(0) != null) {
+            val Self = visit(context.id(0)) as Result
+            selfID = Self.text
         }
-        data = extend
+        if (context.id(1) != null) {
+            val Super = visit(context.id(1)) as Result
+            superID = Super.text
+        }
+        for (item in context.packageSupportStatement()) {
+            obj += visit(item)
+        }
+        selfID = ""
+        superID = ""
         text = obj
     }
 
-    override fun visitPackageVariableStatement(context: PackageVariableStatementContext) = run {
+    override fun visitPackageConstantStatement(context: PackageConstantStatementContext): any {
+        val r1 = visit(context.id()) as Result
+        val isMutable = r1.isVirtual
+        var typ = ""
+        var r2: Result? = null
+        if (context.expression() != null) {
+            r2 = visit(context.expression()) as Result
+            typ = r2.data as str
+        }
+        if (context.typeType() != null) {
+            typ = visit(context.typeType()) as str
+        }
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+
+        obj += "${r1.permission} val ${r1.text}:$typ"
+        obj += if (r2 != null) {
+            " = ${r2.text}$Wrap"
+        } else {
+            Wrap
+        }
+        return obj
+    }
+
+    override fun visitPackageVariableStatement(context: PackageVariableStatementContext): any {
         val r1 = visit(context.id()) as Result
         val isMutable = r1.isVirtual
         var typ = ""
@@ -103,39 +137,45 @@ open class PackageVisitor() : NamespaceVisitor() {
         } else {
             Wrap
         }
-        obj
+        return obj
     }
 
-    override fun visitPackageControlSubStatement(context: PackageControlSubStatementContext) = Result().apply {
+    override fun visitPackageFunctionStatement(context: PackageFunctionStatementContext) : any {
+        val id = visit(context.id()) as Result
+        val isVirtual = "override"
         var obj = ""
-        add_current_set()
-        val (id, typ) = GetControlSub(context.id(0).text)
-        if (context.id(1) != null) {
-            setID = context.id(1).text
+        // # 泛型 #
+        var templateContract = ""
+        if (context.templateDefine() != null) {
+            val template = visit(context.templateDefine()) as TemplateItem
+            obj += template.Template
+            templateContract = template.Contract
         }
-        if (context.functionSupportStatement().size > 0) {
-            obj += id + BlockLeft
-            for (item in context.functionSupportStatement()) {
-                obj += visit(item)
+        // # 异步 #
+        var pout = visit(context.parameterClauseOut()) as str
+        if (context.t.type == Right_Flow) {
+            pout = if (pout != "Unit") {
+                pout
+            } else {
+                "Unit"
             }
-            obj += BlockRight + Wrap
+            obj += "${id.permission} $isVirtual fun $templateContract async ${id.text} "
         } else {
-            obj += id
+//            if (context.y != null) {
+//                if (pout != "Unit") {
+//                    pout = "" IEnum "<" pout ">"
+//                }
+//            }
+            obj += " ${id.permission} $isVirtual fun $templateContract ${id.text} "
         }
-        delete_current_set()
-        setID = ""
-        text = obj
-        data = typ
-    }
 
-    override fun visitPackageImplementStatement(context: PackageImplementStatementContext) = Result().apply {
-        var obj = ""
-        val extends = visit(context.typeType()) as str
-        for (item in context.implementSupportStatement()) {
-            obj += visit(item)
-        }
-        text = obj
-        data = extends
+        add_current_set()
+        obj += visit(context.parameterClauseIn()).to<str>() + ":" + pout + BlockLeft + Wrap
+        obj += ProcessFunctionSupport(context.functionSupportStatement())
+        delete_current_set()
+        obj += BlockRight + Wrap
+        this.superID = ""
+        return obj
     }
 
     override fun visitPackageNewStatement(context: PackageNewStatementContext) = run {
@@ -168,9 +208,14 @@ open class PackageVisitor() : NamespaceVisitor() {
         if (context.annotationSupport() != null) {
             obj += visit(context.annotationSupport())
         }
-        for (item in context.protocolSupportStatement()) {
+        for (item in context.protocolSubStatement()) {
             val r = visit(item) as Result
             interfaceProtocol += r.text
+        }
+        val extend = mutableListOf<str>()
+        for (item in context.includeStatement()) {
+            val r = visit(item) as str
+            extend += r
         }
         obj += "public interface $ptclName"
         // # 泛型 #
@@ -180,35 +225,18 @@ open class PackageVisitor() : NamespaceVisitor() {
             obj += template.Template
             templateContract = template.Contract
         }
+        if (extend.count() > 0) {
+            var temp = extend[0]
+            for (i in 1 .. extend.count()-1) {
+                temp += "," + extend[i]
+            }
+            obj += ":" + temp
+        }
         obj += templateContract + BlockLeft + Wrap
         obj += interfaceProtocol
         obj += BlockRight + Wrap
         obj
     }
-
-    override fun visitProtocolControlStatement(context: ProtocolControlStatementContext) = Result().apply {
-        val id = visit(context.id()) as Result
-        var isMutable = id.isVirtual
-        if (context.annotationSupport() != null) {
-            text += visit(context.annotationSupport())
-        }
-        permission = "public"
-        val type = visit(context.typeType()) as str
-        text += "var ${id.text}:$type " + Wrap
-//        text += BlockLeft
-//        if (context.protocolControlSubStatement().size > 0) {
-//            for (item in context.protocolControlSubStatement()) {
-//                text += visit(item)
-//            }
-//        } else {
-//            text += "get;set;"
-//        }
-//
-//        text += BlockRight + Wrap
-    }
-
-    override fun visitProtocolControlSubStatement(context: ProtocolControlSubStatementContext) =
-        GetControlSub(context.id().text).first
 
     override fun visitProtocolFunctionStatement(context: ProtocolFunctionStatementContext) = Result().apply {
         val id = visit(context.id()) as Result

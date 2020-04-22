@@ -8,10 +8,7 @@ open class LogicVisitor() : FunctionVisitor() {
     // logic -----------------------------
 
     override fun visitIteratorStatement(context: IteratorStatementContext) = Iterator().apply {
-        if (context.op.text == ">=" || context.op.text == "<=") {
-            attach = T
-        }
-        if (context.op.text == ">" || context.op.text == ">=") {
+        if (context.Tilde() == null) {
             order = F
         }
         if (context.expression().size == 2) {
@@ -241,7 +238,7 @@ open class LogicVisitor() : FunctionVisitor() {
         obj
     }
 
-    override fun visitUsingStatement(context: UsingStatementContext) = run {
+    override fun visitUsingStatement(context: UsingStatementContext) :any {
         var obj = ""
         val r1 = visit(context.expression(0)) as Result
         val r2 = visit(context.expression(1)) as Result
@@ -251,30 +248,33 @@ open class LogicVisitor() : FunctionVisitor() {
         } else {
             "${r2.text}.use$BlockLeft ${r1.text} -> "
         }
-        obj
+        return obj
     }
 
     override fun visitLinq(context: LinqContext) = Result().apply {
         data = "var"
-        text += "from ${visit(context.expression(0)).to<Result>().text} "
+        text += "from ${visit(context.linqHeadItem()) as str} "
         for (item in context.linqItem()) {
             text += " ${visit(item)}"
         }
-        text += "${context.k.text} ${visit(context.expression(1)).to<Result>().text}"
+        text += "${(visit(context.id()) as Result).text} ${visit(context.expression()).to<Result>().text}"
     }
 
-    override fun visitLinqItem(context: LinqItemContext) = run {
-        var obj = visit(context.linqKeyword()) as str
+    override fun visitLinqItem(context: LinqItemContext) :any {
+        if (context.linqHeadItem() != null) {
+            return visit(context.linqHeadItem()) as str
+        }
+        var obj = (visit(context.id() )as Result).text
         if (context.expression() != null) {
             obj += " ${visit(context.expression()).to<Result>().text}"
         }
-        obj
+        return obj
     }
 
-    override fun visitLinqKeyword(context: LinqKeywordContext) = visit(context.getChild(0))
-
-    override fun visitLinqHeadKeyword(context: LinqHeadKeywordContext) = context.k.text
-
-    override fun visitLinqBodyKeyword(context: LinqBodyKeywordContext) = context.k.text
-
+    override fun visitLinqHeadItem(context: LinqHeadItemContext): any {
+        var obj = ""
+        var id = visit(context.id()) as Result
+        obj += "from ${id.text} in ${(visit(context.expression()) as Result).text} "
+        return obj
+    }
 }

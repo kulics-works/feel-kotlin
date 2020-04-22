@@ -1,4 +1,4 @@
-// Generated from KParser.g4 by ANTLR 4.7.2
+// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/kotlin/antlr/KParser.g4 by ANTLR 4.8
 package antlr.generate;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 

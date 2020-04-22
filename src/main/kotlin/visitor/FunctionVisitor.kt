@@ -131,13 +131,6 @@ open class FunctionVisitor() : ExpressionVisitor() {
         obj
     }
 
-    override fun visitParameterClauseSelf(context: ParameterClauseSelfContext) = Parameter().apply {
-        val id = visit(context.id()) as Result
-        this.id = id.text
-        permission = id.permission
-        type = visit(context.typeType()) as str
-    }
-
     override fun visitParameter(context: ParameterContext) = Parameter().apply {
         val id = visit(context.id()) as Result
         this.id = id.text
