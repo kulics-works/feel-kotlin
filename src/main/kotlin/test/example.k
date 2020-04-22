@@ -1,18 +1,13 @@
-demo . {}
+demo . {
+
+}
 
 a! : 1
 c : 2
 
-test : (->) {
-    a = 1
-    b = 2
-    s = "hello " + a +  " world"
-    ? a == 1 {
-    } _ {
-    }
-    ? a : 1 {
-    } _ {
-    }
+testLoop : (->) {
+    a! : 0
+    b : 5
     arr : {1;2;3;4;5}
     @ i : arr {
         print(i)
@@ -25,18 +20,40 @@ test : (->) {
     }
 }
 
+testJudge : (->) {
+    a = 1
+    b! : 2
+    s : "hello " + a +  " world"
+    ? a == 1 {
+    } _ {
+    }
+    ? a : 1 {
+    } _ {
+    }
+}
+
+testLambda : (fn (int->)->) {
+}
+
 pack : software \/ $ me {
     name : "k"
-    age : "2"
+    age! : 2
     stop : (->){
     }
-    title! str
-    run : (->) {}
-} \/ (->$) {
 
+    . title str
+    . description! str
+
+    . run : (->) {
+    }
+
+} \/ (->$) {
+    title = ""
+    description = ""
 }
 
 software : $$ {
-    # title! str
+    title str
+    description! str
     run (->)
 }

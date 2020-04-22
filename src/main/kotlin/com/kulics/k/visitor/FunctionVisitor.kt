@@ -1,7 +1,7 @@
 package com.kulics.k.visitor
 
-import antlr.generate.*
-import antlr.generate.KParser.*
+import com.kulics.k.antlr.generate.*
+import com.kulics.k.antlr.generate.KParser.*
 import com.kulics.k.*
 
 open class FunctionVisitor() : ExpressionVisitor() {

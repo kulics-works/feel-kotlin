@@ -1,7 +1,7 @@
 package com.kulics.k.visitor
 
-import antlr.generate.*
-import antlr.generate.KParser.*
+import com.kulics.k.antlr.generate.*
+import com.kulics.k.antlr.generate.KParser.*
 import com.kulics.k.*
 
 open class NamespaceVisitor() : LogicVisitor() {
@@ -15,7 +15,7 @@ open class NamespaceVisitor() : LogicVisitor() {
         val ns = visit(context.exportStatement()) as Namespace
         obj += "package ${ns.name + Wrap}"
         // import library
-        obj += "import Library.*;$Wrap"
+        obj += "$Wrap"
         obj += ns.imports + Wrap
 
         var content = ""

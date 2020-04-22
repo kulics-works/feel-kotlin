@@ -1,8 +1,8 @@
 package com.kulics.k
 
 
-import antlr.generate.KLexer
-import antlr.generate.KParser
+import com.kulics.k.antlr.generate.KLexer
+import com.kulics.k.antlr.generate.KParser
 import com.kulics.k.visitor.KLangVisitor
 import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream

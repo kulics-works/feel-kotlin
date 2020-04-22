@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    antlr("org.antlr:antlr4:4.7.2")
+    antlr("org.antlr:antlr4:4.8")
 }
 
 tasks.withType<KotlinCompile> {

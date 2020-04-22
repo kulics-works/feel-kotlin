@@ -1,7 +1,7 @@
 package com.kulics.k.visitor
 
-import antlr.generate.*
-import antlr.generate.KParser.*
+import com.kulics.k.antlr.generate.*
+import com.kulics.k.antlr.generate.KParser.*
 import com.kulics.k.*
 
 open class PackageVisitor() : NamespaceVisitor() {
@@ -30,7 +30,7 @@ open class PackageVisitor() : NamespaceVisitor() {
         }
         for (item in context.packageNewStatement()) {
             val r = visit(item) as str
-            obj += "public ${id.text} $r "
+            obj += r
         }
         obj += BlockRight + Wrap
         var header = ""
@@ -81,7 +81,10 @@ open class PackageVisitor() : NamespaceVisitor() {
             superID = Super.text
         }
         for (item in context.packageSupportStatement()) {
-            obj += visit(item)
+            when (visit(item)) {
+                null -> ""
+                else -> obj += visit(item)
+            }
         }
         selfID = ""
         superID = ""
@@ -140,9 +143,9 @@ open class PackageVisitor() : NamespaceVisitor() {
         return obj
     }
 
-    override fun visitPackageFunctionStatement(context: PackageFunctionStatementContext) : any {
+    override fun visitPackageFunctionStatement(context: PackageFunctionStatementContext): any {
         val id = visit(context.id()) as Result
-        val isVirtual = "override"
+        val isVirtual = ""
         var obj = ""
         // # 泛型 #
         var templateContract = ""
@@ -209,8 +212,8 @@ open class PackageVisitor() : NamespaceVisitor() {
             obj += visit(context.annotationSupport())
         }
         for (item in context.protocolSubStatement()) {
-            val r = visit(item) as Result
-            interfaceProtocol += r.text
+            val r = visit(item) as str
+            interfaceProtocol += r
         }
         val extend = mutableListOf<str>()
         for (item in context.includeStatement()) {
@@ -227,7 +230,7 @@ open class PackageVisitor() : NamespaceVisitor() {
         }
         if (extend.count() > 0) {
             var temp = extend[0]
-            for (i in 1 .. extend.count()-1) {
+            for (i in 1..extend.count() - 1) {
                 temp += "," + extend[i]
             }
             obj += ":" + temp
@@ -236,6 +239,31 @@ open class PackageVisitor() : NamespaceVisitor() {
         obj += interfaceProtocol
         obj += BlockRight + Wrap
         obj
+    }
+
+    override fun visitProtocolSubStatement(context: ProtocolSubStatementContext): any {
+        var obj = ""
+        for (item in context.protocolSupportStatement()) {
+            obj += (visit(item) as Result).text
+        }
+        return obj
+    }
+
+    override fun visitProtocolVariableStatement(context: ProtocolVariableStatementContext): any {
+        var id = visit(context.id()) as Result
+        var isMutable = id.isVirtual
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+        val type = visit(context.typeType()) as str
+        if (context.Bang() == null) {
+            obj += "val "
+        } else {
+            obj += "var "
+        }
+        obj += id.text + ": " + type + Wrap
+        return Result().apply { text = obj }
     }
 
     override fun visitProtocolFunctionStatement(context: ProtocolFunctionStatementContext) = Result().apply {

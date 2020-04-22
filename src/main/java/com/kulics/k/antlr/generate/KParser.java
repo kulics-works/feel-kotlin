@@ -1,5 +1,5 @@
-// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/kotlin/antlr/KParser.g4 by ANTLR 4.8
-package antlr.generate;
+// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/kotlin/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
+package com.kulics.k.antlr.generate;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;

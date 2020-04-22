@@ -1,7 +1,7 @@
 package com.kulics.k.visitor
 
-import antlr.generate.*
-import antlr.generate.KParser.*
+import com.kulics.k.antlr.generate.*
+import com.kulics.k.antlr.generate.KParser.*
 import com.kulics.k.*
 
 open class ImplementVisitor() : PackageVisitor() {
@@ -63,7 +63,7 @@ open class ImplementVisitor() : PackageVisitor() {
         obj
     }
 
-    override fun visitOverrideVariableStatement(context: OverrideVariableStatementContext) = run {
+    override fun visitOverrideVariableStatement(context: OverrideVariableStatementContext) :any {
         val r1 = visit(context.id()) as Result
         val isMutable = true // # r1.isVirtual #
         val isVirtual = "override"
@@ -76,15 +76,30 @@ open class ImplementVisitor() : PackageVisitor() {
         obj += "${r1.permission} $isVirtual var ${r1.text}:$typ$Wrap"
         if (context.expression() != null) {
             val expr = visit(context.expression()) as Result
-            obj += "get(){return ${expr.text}} $Wrap set(v){ ${expr.text} =v}"
-        } else {
-//            for (item in context.packageControlSubStatement()) {
-//                val temp = visit(item) as Result
-//                obj += temp.text
-//            }
+            obj += " = ${expr.text}"
         }
         obj += Wrap
         this.superID = ""
-        obj
+        return obj
+    }
+
+    override fun visitOverrideConstantStatement(context: OverrideConstantStatementContext) : any {
+        val r1 = visit(context.id()) as Result
+        val isMutable = true // # r1.isVirtual #
+        val isVirtual = "override"
+        var typ = ""
+        typ = visit(context.typeType()) as str
+        var obj = ""
+        if (context.annotationSupport() != null) {
+            obj += visit(context.annotationSupport())
+        }
+        obj += "${r1.permission} $isVirtual val ${r1.text}:$typ$Wrap"
+        if (context.expression() != null) {
+            val expr = visit(context.expression()) as Result
+            obj += " = ${expr.text}"
+        }
+        obj += Wrap
+        this.superID = ""
+        return obj
     }
 }
