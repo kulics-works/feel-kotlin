@@ -40,7 +40,7 @@ class Iterator {
     var end = Result()
     var step = Result()
     var order = T
-    var attach = F
+    var close = T
 }
 
 fun GetControlSub(id: str) =

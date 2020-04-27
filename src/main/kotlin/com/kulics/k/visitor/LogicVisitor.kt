@@ -8,8 +8,11 @@ open class LogicVisitor() : FunctionVisitor() {
     // logic -----------------------------
 
     override fun visitIteratorStatement(context: IteratorStatementContext) = Iterator().apply {
-        if (context.Dot_Dot() == null) {
+        if (context.Dot_Dot_Dot() != null || context.Dot_Dot_Greater() != null) {
             order = F
+        }
+        if (context.Dot_Dot_Less() != null || context.Dot_Dot_Greater() != null) {
+            close = F
         }
         if (context.expression().size == 2) {
             begin = visit(context.expression(0)) as Result
@@ -32,12 +35,12 @@ open class LogicVisitor() : FunctionVisitor() {
         val it = visit(context.iteratorStatement()) as Iterator
         val target = if (it.order == "true") {
             when {
-                it.attach == "true" -> "${it.begin.text}..${it.end.text} step ${it.step.text}"
+                it.close == "true" -> "${it.begin.text}..${it.end.text} step ${it.step.text}"
                 else -> "${it.begin.text} until ${it.end.text} step ${it.step.text}"
             }
         } else {
             when {
-                it.attach == "true" -> "${it.begin.text} downTo ${it.end.text} step ${it.step.text}"
+                it.close == "true" -> "${it.begin.text} downTo ${it.end.text} step ${it.step.text}"
                 else -> "${it.begin.text} downTo ${it.end.text} step ${it.step.text}"
             }
         }
