@@ -164,10 +164,6 @@ open class ExpressionVisitor() : BaseVisitor() {
                 val e2 = visit(context.callElement()) as Result
                 text += e2.text
             }
-            context.callChannel() != null -> {
-                val e2 = visit(context.callChannel()) as Result
-                text += e2.text
-            }
         }
     }
 
@@ -426,9 +422,9 @@ open class ExpressionVisitor() : BaseVisitor() {
         visit(context.name()).to<str>() + " = " + visit(context.expression()).to<Result>().text
 
     override fun visitCallAwait(context: CallAwaitContext) = Result().apply {
-        val expr = visit(context.expression()) as Result
-        data = "var"
-        text = "await " + expr.text
+//        val expr = visit(context.expression()) as Result
+//        data = "var"
+//        text = "await " + expr.text
     }
 
     override fun visitList(context: ListContext) = Result().apply {

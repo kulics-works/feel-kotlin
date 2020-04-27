@@ -1,4 +1,4 @@
-// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/kotlin/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
+// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/java/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
 package com.kulics.k.antlr.generate;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -398,15 +398,15 @@ public interface KParserListener extends ParseTreeListener {
 	 */
 	void exitReturnStatement(KParser.ReturnStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link KParser#returnAwaitStatement}.
+	 * Enter a parse tree produced by {@link KParser#returnAsyncStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterReturnAwaitStatement(KParser.ReturnAwaitStatementContext ctx);
+	void enterReturnAsyncStatement(KParser.ReturnAsyncStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link KParser#returnAwaitStatement}.
+	 * Exit a parse tree produced by {@link KParser#returnAsyncStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitReturnAwaitStatement(KParser.ReturnAwaitStatementContext ctx);
+	void exitReturnAsyncStatement(KParser.ReturnAsyncStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link KParser#yieldReturnStatement}.
 	 * @param ctx the parse tree
@@ -678,16 +678,6 @@ public interface KParserListener extends ParseTreeListener {
 	 */
 	void exitConstantDeclaredStatement(KParser.ConstantDeclaredStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link KParser#channelAssignStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterChannelAssignStatement(KParser.ChannelAssignStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link KParser#channelAssignStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitChannelAssignStatement(KParser.ChannelAssignStatementContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link KParser#varStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -858,6 +848,26 @@ public interface KParserListener extends ParseTreeListener {
 	 */
 	void exitCallFunc(KParser.CallFuncContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link KParser#callAsync}.
+	 * @param ctx the parse tree
+	 */
+	void enterCallAsync(KParser.CallAsyncContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KParser#callAsync}.
+	 * @param ctx the parse tree
+	 */
+	void exitCallAsync(KParser.CallAsyncContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KParser#callAwait}.
+	 * @param ctx the parse tree
+	 */
+	void enterCallAwait(KParser.CallAwaitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KParser#callAwait}.
+	 * @param ctx the parse tree
+	 */
+	void exitCallAwait(KParser.CallAwaitContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link KParser#callChannel}.
 	 * @param ctx the parse tree
 	 */
@@ -867,6 +877,16 @@ public interface KParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCallChannel(KParser.CallChannelContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KParser#transfer}.
+	 * @param ctx the parse tree
+	 */
+	void enterTransfer(KParser.TransferContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KParser#transfer}.
+	 * @param ctx the parse tree
+	 */
+	void exitTransfer(KParser.TransferContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link KParser#callElement}.
 	 * @param ctx the parse tree
@@ -967,26 +987,6 @@ public interface KParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDictionaryAssign(KParser.DictionaryAssignContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link KParser#callAwait}.
-	 * @param ctx the parse tree
-	 */
-	void enterCallAwait(KParser.CallAwaitContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link KParser#callAwait}.
-	 * @param ctx the parse tree
-	 */
-	void exitCallAwait(KParser.CallAwaitContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link KParser#callAsync}.
-	 * @param ctx the parse tree
-	 */
-	void enterCallAsync(KParser.CallAsyncContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link KParser#callAsync}.
-	 * @param ctx the parse tree
-	 */
-	void exitCallAsync(KParser.CallAsyncContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link KParser#list}.
 	 * @param ctx the parse tree

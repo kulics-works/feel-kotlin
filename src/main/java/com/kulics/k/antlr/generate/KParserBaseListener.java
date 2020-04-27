@@ -1,4 +1,4 @@
-// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/kotlin/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
+// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/java/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
 package com.kulics.k.antlr.generate;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -484,13 +484,13 @@ public class KParserBaseListener implements KParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturnAwaitStatement(KParser.ReturnAwaitStatementContext ctx) { }
+	@Override public void enterReturnAsyncStatement(KParser.ReturnAsyncStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturnAwaitStatement(KParser.ReturnAwaitStatementContext ctx) { }
+	@Override public void exitReturnAsyncStatement(KParser.ReturnAsyncStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -820,18 +820,6 @@ public class KParserBaseListener implements KParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterChannelAssignStatement(KParser.ChannelAssignStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitChannelAssignStatement(KParser.ChannelAssignStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVarStatement(KParser.VarStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1036,6 +1024,30 @@ public class KParserBaseListener implements KParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCallAsync(KParser.CallAsyncContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCallAsync(KParser.CallAsyncContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCallAwait(KParser.CallAwaitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCallAwait(KParser.CallAwaitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCallChannel(KParser.CallChannelContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1043,6 +1055,18 @@ public class KParserBaseListener implements KParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCallChannel(KParser.CallChannelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTransfer(KParser.TransferContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTransfer(KParser.TransferContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1163,30 +1187,6 @@ public class KParserBaseListener implements KParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDictionaryAssign(KParser.DictionaryAssignContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCallAwait(KParser.CallAwaitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCallAwait(KParser.CallAwaitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCallAsync(KParser.CallAsyncContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCallAsync(KParser.CallAsyncContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

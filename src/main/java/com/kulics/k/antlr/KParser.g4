@@ -33,7 +33,7 @@ typeRedefineStatement: id Bang? Colon New_Line* typeType end;
 typeTagStatement: Comment_Tag; 
 
 // 枚举
-enumStatement: (annotationSupport)? id Bang? Colon New_Line* Dot_Dot
+enumStatement: (annotationSupport)? id Bang? Colon New_Line* left_brack Colon right_brack
  left_brace enumSupportStatement* right_brace end;
 
 enumSupportStatement: id (Colon (add)? integerExpr)? end;
@@ -44,7 +44,7 @@ namespaceConstantStatement: (annotationSupport)? id (Colon expression | typeType
 // 命名空间函数
 namespaceFunctionStatement: (annotationSupport)? (id | left_brack id templateDefine right_brack) Colon
  left_paren parameterClauseIn t=(Right_Arrow|Right_Flow) b=Bang? y=At? New_Line*
-(parameterClauseOut|Discard) right_paren left_brace (functionSupportStatement)* right_brace end;
+parameterClauseOut right_paren left_brace (functionSupportStatement)* right_brace end;
 
 // 定义包
 packageStatement: (annotationSupport)? (id | left_brack id templateDefine right_brack) Bang? Colon
@@ -66,7 +66,7 @@ packageStaticConstantStatement: (annotationSupport)? id (Colon expression | type
 // 函数
 packageStaticFunctionStatement: (annotationSupport)? (id | left_brack id templateDefine right_brack) Colon
  left_paren parameterClauseIn t=(Right_Arrow|Right_Flow) b=Bang? y=At? New_Line*
-(parameterClauseOut|Discard) right_paren left_brace (functionSupportStatement)* right_brace end;
+parameterClauseOut right_paren left_brace (functionSupportStatement)* right_brace end;
 
 packageFieldStatement: Coin (p=Question? id (more id)?)? left_brace (packageSupportStatement)* right_brace;
 
@@ -93,7 +93,7 @@ packageConstantStatement: (annotationSupport)? id (Colon expression| typeType (C
 // 函数
 packageFunctionStatement: (annotationSupport)? (id | left_brack id templateDefine right_brack) Colon
  left_paren parameterClauseIn t=(Right_Arrow|Right_Flow) b=Bang? y=At? New_Line*
-(parameterClauseOut|Discard) right_paren left_brace (functionSupportStatement)* right_brace end;
+parameterClauseOut right_paren left_brace (functionSupportStatement)* right_brace end;
 // 定义子方法
 packageControlSubStatement: id (left_paren id right_paren)? left_brace (functionSupportStatement)+ right_brace end;
 // 定义包事件
@@ -111,7 +111,7 @@ overrideConstantStatement: (annotationSupport)? Dot (n='_')? id (Colon expressio
 // 函数
 overrideFunctionStatement: (annotationSupport)? Dot (n='_')? (id | left_brack id templateDefine right_brack) Colon
  left_paren parameterClauseIn t=(Right_Arrow|Right_Flow) b=Bang? y=At? New_Line*
-(parameterClauseOut|Discard) right_paren left_brace (functionSupportStatement)* right_brace end;
+parameterClauseOut right_paren left_brace (functionSupportStatement)* right_brace end;
 
 // 协议
 protocolStatement: (annotationSupport)? (id | left_brack id templateDefine right_brack) Bang? Colon
@@ -134,11 +134,11 @@ t=(Right_Arrow|Right_Flow) b=Bang? y=At? New_Line* parameterClauseOut right_pare
 // 函数
 functionStatement: (id | left_brack id templateDefine right_brack) Colon left_paren parameterClauseIn
  t=(Right_Arrow|Right_Flow) b=Bang? y=At? New_Line*
- (parameterClauseOut|Discard) right_paren left_brace (functionSupportStatement)* right_brace end;
+ parameterClauseOut right_paren left_brace (functionSupportStatement)* right_brace end;
 // 返回
 returnStatement: Left_Arrow (tupleExpression)? end;
-// 异步等待返回
-returnAwaitStatement: Left_Flow (tupleExpression)? end;
+// 异步返回
+returnAsyncStatement: Left_Flow (tupleExpression)? end;
 // 生成器
 yieldReturnStatement: At Left_Arrow tupleExpression end;
 yieldBreakStatement: At Left_Arrow end;
@@ -147,12 +147,12 @@ parameterClauseIn: parameter? (more parameter)*;
 // 出参
 parameterClauseOut: parameter? (more parameter)*;
 // 参数结构
-parameter: (annotationSupport)? id Bang? (Dot_Dot|Dot_Dot_Dot)? typeType (Colon expression)?;
+parameter: (annotationSupport)? id Bang? (Comma_Comma|Comma_Comma_Comma)? typeType (Colon expression)?;
 
 // 函数支持的语句
 functionSupportStatement:
 returnStatement |
-returnAwaitStatement |
+returnAsyncStatement |
 yieldReturnStatement |
 yieldBreakStatement |
 judgeCaseStatement |
@@ -168,7 +168,6 @@ checkReportStatement |
 functionStatement |
 variableDeclaredStatement |
 constantDeclaredStatement |
-channelAssignStatement |
 varStatement |
 bindStatement |
 assignStatement |
@@ -217,14 +216,12 @@ checkFinallyStatment: Discard left_brace (functionSupportStatement)* right_brace
 checkReportStatement: Bang Left_Arrow expression end;
 
 // 迭代器
-iteratorStatement: expression (Tilde|Tilde_Tilde) (left_paren expression right_paren)? expression;
+iteratorStatement: expression (Dot_Dot|Dot_Dot_Dot) (left_paren expression right_paren)? expression;
 
 // 声明变量
 variableDeclaredStatement: id Bang typeType end;
 // 声明常量
 constantDeclaredStatement: id typeType end;
-// 通道赋值
-channelAssignStatement: expression left_brack Dot right_brack assign expression end;
 // 定义
 varStatement: varId (more varId)* Colon tupleExpression end;
 // 绑定
@@ -251,7 +248,7 @@ expression:
 linq | // 联合查询
 primaryExpression | 
 callPkg | // 新建包 
-callAwait | // 异步等待调用
+callChannel | // 通道访问
 callAsync | // 创建异步调用
 list | // 列表
 dictionary | // 字典
@@ -273,7 +270,9 @@ expression callFunc | // 函数调用
 callNew | // 构造类对象
 expression callChannel | // 调用通道
 expression callElement | // 访问元素
+expression callAwait |  // 异步等待调用
 expression callExpression | // 链式调用
+expression transfer expression | // 传递通道值
 expression pow expression | // 幂型表达式
 expression mul expression | // 积型表达式
 expression add expression | // 和型表达式
@@ -284,7 +283,7 @@ expression compareCombine expression | // 组合比较表达式
 expression compare expression | // 比较表达式
 expression logic expression; // 逻辑表达式
 
-callExpression: call New_Line? (id | left_brack id templateCall right_brack) (callFunc|callChannel|callElement)?;
+callExpression: call New_Line? (id | left_brack id templateCall right_brack) (callFunc|callElement)?;
 
 tuple: left_paren (expression (more expression)* )? right_paren; // 元组
 
@@ -300,7 +299,13 @@ annotationItem: id (tuple|lambda)?;
 
 callFunc: (tuple|lambda); // 函数调用
 
-callChannel: left_brack Dot right_brack; // 通道调用
+callAsync: Right_Wave expression; // 异步等待调用
+
+callAwait: Right_Wave (tuple|lambda); // 异步等待调用
+
+callChannel: Left_Wave expression; // 通道访问
+
+transfer: Left_Wave; // 传递通道值
 
 callElement: left_brack (slice | expression) right_brack; // 元素调用
 
@@ -322,9 +327,6 @@ listAssign: (expression end)* expression;
 
 dictionaryAssign: (dictionaryElement end)* dictionaryElement;
 
-callAwait: Less_Less expression; // 异步等待调用
-callAsync: Greater_Greater expression; // 创建异步调用
-
 list: left_brace (expression end)* expression right_brace; // 列表
 
 dictionary: left_brace (dictionaryElement end)* dictionaryElement right_brace; // 字典
@@ -333,9 +335,9 @@ dictionaryElement: left_brack expression right_brack Equal expression; // 字典
 
 slice: sliceStart | sliceEnd | sliceFull;
 
-sliceFull: expression (Tilde|Tilde_Tilde) expression; 
-sliceStart: expression (Tilde|Tilde_Tilde) Discard;
-sliceEnd: Discard (Tilde|Tilde_Tilde) expression; 
+sliceFull: expression (Dot_Dot|Dot_Dot_Dot) expression; 
+sliceStart: expression (Dot_Dot|Dot_Dot_Dot);
+sliceEnd: (Dot_Dot|Dot_Dot_Dot) expression; 
 
 nameSpaceItem: (id call New_Line?)* id;
 
@@ -345,7 +347,7 @@ templateDefine: templateDefineItem*;
 
 templateDefineItem: id | left_paren id id right_paren; 
 
-templateCall: typeType (more typeType)*;
+templateCall: typeType*;
 
 lambda: left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line* tupleExpression right_brace
 | left_brace (lambdaIn)? t=(Right_Arrow|Right_Flow) New_Line* 
@@ -445,13 +447,13 @@ typeType: typeNotNull | typeNullable;
 
 typeNullable: Question typeNotNull;
 
-typeArray: left_brack Dot right_brack typeType;
+typeArray: left_brack Comma right_brack typeType;
 typeList: left_brack right_brack typeType;
 typeSet: left_brack typeType right_brack Discard;
 typeDictionary: left_brack typeType right_brack typeType;
 typeStack: left_brack Greater right_brack typeType;
 typeQueue: left_brack Less right_brack typeType;
-typeChannel: left_brack Less_Less right_brack typeType;
+typeChannel: left_brack Tilde right_brack typeType;
 typePackage: nameSpaceItem | left_brack nameSpaceItem templateCall right_brack;
 typeFunction: left_paren typeFunctionParameterClause t=(Right_Arrow|Right_Flow) b=Bang? y=At? New_Line* typeFunctionParameterClause right_paren;
 typeAny: TypeAny;

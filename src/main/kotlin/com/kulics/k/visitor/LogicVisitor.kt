@@ -8,7 +8,7 @@ open class LogicVisitor() : FunctionVisitor() {
     // logic -----------------------------
 
     override fun visitIteratorStatement(context: IteratorStatementContext) = Iterator().apply {
-        if (context.Tilde() == null) {
+        if (context.Dot_Dot() == null) {
             order = F
         }
         if (context.expression().size == 2) {

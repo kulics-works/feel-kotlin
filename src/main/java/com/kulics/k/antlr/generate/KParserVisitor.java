@@ -1,4 +1,4 @@
-// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/kotlin/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
+// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/java/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
 package com.kulics.k.antlr.generate;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -245,11 +245,11 @@ public interface KParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReturnStatement(KParser.ReturnStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KParser#returnAwaitStatement}.
+	 * Visit a parse tree produced by {@link KParser#returnAsyncStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitReturnAwaitStatement(KParser.ReturnAwaitStatementContext ctx);
+	T visitReturnAsyncStatement(KParser.ReturnAsyncStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KParser#yieldReturnStatement}.
 	 * @param ctx the parse tree
@@ -413,12 +413,6 @@ public interface KParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConstantDeclaredStatement(KParser.ConstantDeclaredStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KParser#channelAssignStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitChannelAssignStatement(KParser.ChannelAssignStatementContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link KParser#varStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -521,11 +515,29 @@ public interface KParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCallFunc(KParser.CallFuncContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link KParser#callAsync}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCallAsync(KParser.CallAsyncContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KParser#callAwait}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCallAwait(KParser.CallAwaitContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link KParser#callChannel}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCallChannel(KParser.CallChannelContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KParser#transfer}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTransfer(KParser.TransferContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KParser#callElement}.
 	 * @param ctx the parse tree
@@ -586,18 +598,6 @@ public interface KParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDictionaryAssign(KParser.DictionaryAssignContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link KParser#callAwait}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCallAwait(KParser.CallAwaitContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link KParser#callAsync}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCallAsync(KParser.CallAsyncContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KParser#list}.
 	 * @param ctx the parse tree

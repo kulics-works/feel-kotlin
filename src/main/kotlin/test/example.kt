@@ -1,6 +1,5 @@
 package demo
 
-import jetbrains.*;
 
 public var a:Int  = 1
 public const val c: Int  =  2
