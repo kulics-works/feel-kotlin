@@ -243,14 +243,16 @@ open class LogicVisitor() : FunctionVisitor() {
 
     override fun visitUsingStatement(context: UsingStatementContext) :any {
         var obj = ""
-        val r1 = visit(context.expression(0)) as Result
-        val r2 = visit(context.expression(1)) as Result
-        obj = if (context.typeType() != null) {
-            val Type = visit(context.typeType()) as str
-            "${r2.text}.use$BlockLeft ${r1.text} $Type -> "
-        } else {
-            "${r2.text}.use$BlockLeft ${r1.text} -> "
+        var r1 = ""
+        for (v in context.constId()) {
+            r1 = visit(v) as str
         }
+        val r2 = visit(context.tupleExpression()) as Result
+        obj = "${r2.text}.use$BlockLeft ${r1} -> "
+        add_current_set()
+        obj += ProcessFunctionSupport(context.functionSupportStatement())
+        delete_current_set()
+        obj += BlockRight
         return obj
     }
 

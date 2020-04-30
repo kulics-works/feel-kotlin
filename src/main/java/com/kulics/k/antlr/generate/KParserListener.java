@@ -38,6 +38,16 @@ public interface KParserListener extends ParseTreeListener {
 	 */
 	void exitExportStatement(KParser.ExportStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link KParser#namespaceSupportStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KParser#namespaceSupportStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link KParser#importStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -48,15 +58,15 @@ public interface KParserListener extends ParseTreeListener {
 	 */
 	void exitImportStatement(KParser.ImportStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link KParser#namespaceSupportStatement}.
+	 * Enter a parse tree produced by {@link KParser#importSubStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx);
+	void enterImportSubStatement(KParser.ImportSubStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link KParser#namespaceSupportStatement}.
+	 * Exit a parse tree produced by {@link KParser#importSubStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx);
+	void exitImportSubStatement(KParser.ImportSubStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link KParser#typeAliasStatement}.
 	 * @param ctx the parse tree
@@ -718,6 +728,16 @@ public interface KParserListener extends ParseTreeListener {
 	 */
 	void exitExpressionStatement(KParser.ExpressionStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link KParser#annotationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationStatement(KParser.AnnotationStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KParser#annotationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationStatement(KParser.AnnotationStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link KParser#varId}.
 	 * @param ctx the parse tree
 	 */
@@ -837,6 +857,16 @@ public interface KParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAnnotationItem(KParser.AnnotationItemContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KParser#annotationString}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationString(KParser.AnnotationStringContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KParser#annotationString}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationString(KParser.AnnotationStringContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link KParser#callFunc}.
 	 * @param ctx the parse tree

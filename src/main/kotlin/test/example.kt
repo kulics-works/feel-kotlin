@@ -1,6 +1,4 @@
 package demo
-
-
 public var a:Int  = 1
 public const val c: Int  =  2
 public fun  testLoop ():Unit{
@@ -10,7 +8,7 @@ public fun  testLoop ():Unit{
     for (i in arr){
         print(i)
     }
-    for (i in 0 until 5 step 1){
+    for (i in 0..5 step 1){
         print(i)
     }
     while (a<b){

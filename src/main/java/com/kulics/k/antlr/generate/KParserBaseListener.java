@@ -52,6 +52,18 @@ public class KParserBaseListener implements KParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterImportStatement(KParser.ImportStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -64,13 +76,13 @@ public class KParserBaseListener implements KParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx) { }
+	@Override public void enterImportSubStatement(KParser.ImportSubStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx) { }
+	@Override public void exitImportSubStatement(KParser.ImportSubStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -868,6 +880,18 @@ public class KParserBaseListener implements KParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterAnnotationStatement(KParser.AnnotationStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAnnotationStatement(KParser.AnnotationStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterVarId(KParser.VarIdContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1007,6 +1031,18 @@ public class KParserBaseListener implements KParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAnnotationItem(KParser.AnnotationItemContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAnnotationString(KParser.AnnotationStringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAnnotationString(KParser.AnnotationStringContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

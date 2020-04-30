@@ -29,17 +29,23 @@ public interface KParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExportStatement(KParser.ExportStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link KParser#namespaceSupportStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link KParser#importStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitImportStatement(KParser.ImportStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KParser#namespaceSupportStatement}.
+	 * Visit a parse tree produced by {@link KParser#importSubStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx);
+	T visitImportSubStatement(KParser.ImportSubStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KParser#typeAliasStatement}.
 	 * @param ctx the parse tree
@@ -437,6 +443,12 @@ public interface KParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpressionStatement(KParser.ExpressionStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link KParser#annotationStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationStatement(KParser.AnnotationStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link KParser#varId}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -508,6 +520,12 @@ public interface KParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAnnotationItem(KParser.AnnotationItemContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KParser#annotationString}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationString(KParser.AnnotationStringContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KParser#callFunc}.
 	 * @param ctx the parse tree

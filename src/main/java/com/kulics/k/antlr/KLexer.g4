@@ -81,6 +81,8 @@ Caret:    '^';
 
 Grave:  '`';
 
+Sharp:	'#';
+
 TypeI8: 	'i8';
 TypeU8: 	'u8';
 TypeI16: 	'i16';
@@ -105,7 +107,7 @@ UndefinedLiteral: 'undef';
 
 FloatLiteral: Digit (Exponent | '.' Digit Exponent?);
 DecimalLiteral: Digit;
-BinaryLiteral: '0' [bB] [0-1_]* [0-1]; 
+BinaryLiteral: '0' [bB] [0-1_]* [0-1];
 OctalLiteral: '0' [oO] [0-7_]* [0-7];
 HexLiteral: '0' [xX] [a-fA-F0-9_]* [a-fA-F0-9];
 fragment Digit: [0-9] | [0-9] [0-9_]* [0-9];   // 单个数字
@@ -117,9 +119,9 @@ IDPrivate: '_' IdentifierPartCharacter+; // 私有标识符
 IDPublic: LetterCharacter IdentifierPartCharacter*; // 公有标识符
 Discard: '_'; // 匿名变量
 
-Comment_Tag: '#:' ~[\r\n]* ; // 特殊注释
+Comment_Tag: '##' ~[\r\n]* ; // 特殊注释
 Comment_Block: '#=' .*? '=#' -> skip; // 块注释
-Comment_Line: '#' ~[\r\n]* -> skip; // 行注释
+Comment_Line: '#:' ~[\r\n]* -> skip; // 行注释
 
 New_Line: '\r'? '\n'; 
 //WS: (' ' |'\t' |'\n' |'\r' )+ -> skip ;

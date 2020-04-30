@@ -39,19 +39,8 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
     fun ProcessFunctionSupport(items: List<FunctionSupportStatementContext>) = run {
         var obj = ""
         var content = ""
-        val lazy = mutableListOf<str>()
         for (item in items) {
-            if (item.getChild(0) is UsingStatementContext) {
-                lazy.add("}")
-                content += "using" + visit(item) as str + BlockLeft + Wrap
-            } else {
-                content += visit(item)
-            }
-        }
-        if (lazy.size > 0) {
-            for (i in lazy.size - 1 downTo 0) {
-                content += BlockRight
-            }
+            content += visit(item)
         }
         obj += content
         obj
@@ -203,9 +192,9 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
     override fun visitAnnotation(context: AnnotationContext) = run {
         var obj = ""
         var id = ""
-        if (context.id() != null) {
-            id = "${visit(context.id()).to<Result>().text}:"
-        }
+//        if (context.id() != null) {
+//            id = "${visit(context.id()).to<Result>().text}:"
+//        }
 
         val r = visit(context.annotationList()) as str
         obj += "$$id $r "
@@ -226,7 +215,7 @@ open class BaseVisitor() : KParserBaseVisitor<any>() {
 
     override fun visitAnnotationItem(context: AnnotationItemContext) = run {
         var obj = ""
-        obj += visit(context.id()).to<Result>().text
+//        obj += visit(context.id()).to<Result>().text
 //        context.forEachIndexed { i, v ->
 //            obj += if (i > 0) {
 //                "," + visit(v)

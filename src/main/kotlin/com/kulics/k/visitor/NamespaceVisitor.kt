@@ -14,9 +14,6 @@ open class NamespaceVisitor() : LogicVisitor() {
         }
         val ns = visit(context.exportStatement()) as Namespace
         obj += "package ${ns.name + Wrap}"
-        // import library
-        obj += "$Wrap"
-        obj += ns.imports + Wrap
 
         var content = ""
         add_current_set()
@@ -36,13 +33,18 @@ open class NamespaceVisitor() : LogicVisitor() {
         val obj = Namespace().apply {
             this.name = name
         }
-        for (item in context.importStatement()) {
-            obj.imports += visit(item) as str
-        }
         obj
     }
 
-    override fun visitImportStatement(context: ImportStatementContext) = run {
+    override fun visitImportStatement(context: ImportStatementContext) : any {
+        var obj = ""
+        for (item in context.importSubStatement()) {
+            obj += visit(item) as str
+        }
+        return obj
+    }
+
+    override fun visitImportSubStatement(context: ImportSubStatementContext) = run {
         var obj = ""
         if (context.annotationSupport() != null) {
             obj += visit(context.annotationSupport())
