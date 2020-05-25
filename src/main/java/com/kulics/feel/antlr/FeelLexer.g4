@@ -1,4 +1,4 @@
-lexer grammar KLexer;
+lexer grammar FeelLexer;
 
 Add_Equal:         	'+=';
 Sub_Equal:         	'-=';
@@ -13,9 +13,6 @@ Less_Equal:         '<=';
 Greater_Equal:      '>=';
 Not_Equal:          '><';
 Combine_Equal:      '<>';
-
-Forward_Back_Slash: '/\\';
-Back_Forward_Slash:	'\\/';
 
 Dot_Dot_Dot: 		'...';
 Dot_Dot_Less:		'..<';

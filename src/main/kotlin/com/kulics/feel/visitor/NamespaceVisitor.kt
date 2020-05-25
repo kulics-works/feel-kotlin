@@ -1,8 +1,7 @@
-package com.kulics.k.visitor
+package com.kulics.feel.visitor
 
-import com.kulics.k.antlr.generate.*
-import com.kulics.k.antlr.generate.KParser.*
-import com.kulics.k.*
+import com.kulics.feel.antlr.generate.FeelParser.*
+import com.kulics.feel.*
 
 open class NamespaceVisitor() : LogicVisitor() {
     // namespace ----------------------------

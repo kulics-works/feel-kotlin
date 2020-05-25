@@ -1,8 +1,7 @@
-package com.kulics.k.visitor
+package com.kulics.feel.visitor
 
-import com.kulics.k.antlr.generate.*
-import com.kulics.k.antlr.generate.KParser.*
-import com.kulics.k.*
+import com.kulics.feel.antlr.generate.FeelParser.*
+import com.kulics.feel.*
 
 open class PackageVisitor() : NamespaceVisitor() {
     // package -------------------------------
@@ -16,19 +15,19 @@ open class PackageVisitor() : NamespaceVisitor() {
         var obj = ""
         var extend = listOf<str>()
 
-        for (item in context.includeStatement()) {
-            val r = visit(item) as str
-            extend += r
-        }
-        for (item in context.packageStaticStatement()) {
+        if (context.packageStaticStatement() != null) {
+            val item = context.packageStaticStatement()
             val r = visit(item) as Result
             obj += r.text
         }
-        for (item in context.packageFieldStatement()) {
+        if (context.packageFieldStatement() != null) {
+            val item = context.packageFieldStatement()
             val r = visit(item) as Result
             obj += r.text
+            extend += r.data as list<str>
         }
-        for (item in context.packageNewStatement()) {
+        if (context.packageNewStatement() != null) {
+            val item = context.packageNewStatement()
             val r = visit(item) as str
             obj += r
         }
@@ -72,6 +71,7 @@ open class PackageVisitor() : NamespaceVisitor() {
 
     override fun visitPackageFieldStatement(context: PackageFieldStatementContext) = Result().apply {
         var obj = ""
+        var extend = listOf<str>()
         if (context.id(0) != null) {
             val Self = visit(context.id(0)) as Result
             selfID = Self.text
@@ -81,14 +81,19 @@ open class PackageVisitor() : NamespaceVisitor() {
             superID = Super.text
         }
         for (item in context.packageSupportStatement()) {
-            when (visit(item)) {
+            val content = when (visit(item)) {
                 null -> ""
-                else -> obj += visit(item)
+                else -> visit(item) as str
+            }
+            when (item.getChild(0)) {
+                is IncludeStatementContext -> extend += content
+                else -> obj += content
             }
         }
         selfID = ""
         superID = ""
         text = obj
+        data = extend
     }
 
     override fun visitPackageConstantStatement(context: PackageConstantStatementContext): any {
@@ -206,19 +211,16 @@ open class PackageVisitor() : NamespaceVisitor() {
     override fun visitProtocolStatement(context: ProtocolStatementContext) = run {
         val id = visit(context.id()) as Result
         var obj = ""
+        val extend = mutableListOf<str>()
         var interfaceProtocol = ""
         var ptclName = id.text
         if (context.annotationSupport() != null) {
             obj += visit(context.annotationSupport())
         }
-        for (item in context.protocolSubStatement()) {
+        if (context.protocolSubStatement() != null) {
+            val item = context.protocolSubStatement()
             val r = visit(item) as str
             interfaceProtocol += r
-        }
-        val extend = mutableListOf<str>()
-        for (item in context.includeStatement()) {
-            val r = visit(item) as str
-            extend += r
         }
         obj += "public interface $ptclName"
         // # 泛型 #

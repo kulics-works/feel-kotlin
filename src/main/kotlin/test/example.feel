@@ -33,21 +33,19 @@ testJudge : (->) {
 testLambda : (fn (int->)->) {
 }
 
-pack : software \/ $ me {
+pack : $ me {
+    software
     name : "k"
     age! : 2
     stop : (->){
     }
 
-    . title str
-    . description! str
+    . title str : ""
+    . description! str : ""
 
     . run : (->) {
     }
 
-} \/ (->$) {
-    title = ""
-    description = ""
 }
 
 software : $$ {

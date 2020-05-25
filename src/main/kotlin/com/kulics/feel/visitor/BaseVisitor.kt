@@ -1,10 +1,10 @@
-package com.kulics.k.visitor
+package com.kulics.feel.visitor
 
-import com.kulics.k.antlr.generate.*
-import com.kulics.k.antlr.generate.KParser.*
-import com.kulics.k.*
+import com.kulics.feel.antlr.generate.*
+import com.kulics.feel.antlr.generate.FeelParser.*
+import com.kulics.feel.*
 
-open class BaseVisitor() : KParserBaseVisitor<any>() {
+open class BaseVisitor() : FeelParserBaseVisitor<any>() {
     var selfID = ""
     var superID = ""
     var setID = ""

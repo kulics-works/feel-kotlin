@@ -1,1330 +1,1330 @@
-// Generated from /Users/kulics/Documents/kulics-works/k-kotlin/src/main/java/com/kulics/k/antlr/KParser.g4 by ANTLR 4.8
-package com.kulics.k.antlr.generate;
+// Generated from /Users/kulics/Documents/kulics-works/feel-kotlin/src/main/java/com/kulics/feel/antlr/FeelParser.g4 by ANTLR 4.8
+package com.kulics.feel.antlr.generate;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
- * This class provides an empty implementation of {@link KParserVisitor},
+ * This class provides an empty implementation of {@link FeelParserVisitor},
  * which can be extended to create a visitor which only needs to handle a subset
  * of the available methods.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public class KParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements KParserVisitor<T> {
+public class FeelParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements FeelParserVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProgram(KParser.ProgramContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProgram(FeelParser.ProgramContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitStatement(KParser.StatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitStatement(FeelParser.StatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExportStatement(KParser.ExportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExportStatement(FeelParser.ExportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNamespaceSupportStatement(KParser.NamespaceSupportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNamespaceSupportStatement(FeelParser.NamespaceSupportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitImportStatement(KParser.ImportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitImportStatement(FeelParser.ImportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitImportSubStatement(KParser.ImportSubStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitImportSubStatement(FeelParser.ImportSubStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeAliasStatement(KParser.TypeAliasStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeAliasStatement(FeelParser.TypeAliasStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeRedefineStatement(KParser.TypeRedefineStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeRedefineStatement(FeelParser.TypeRedefineStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeTagStatement(KParser.TypeTagStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeTagStatement(FeelParser.TypeTagStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitEnumStatement(KParser.EnumStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEnumStatement(FeelParser.EnumStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitEnumSupportStatement(KParser.EnumSupportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEnumSupportStatement(FeelParser.EnumSupportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNamespaceVariableStatement(KParser.NamespaceVariableStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNamespaceVariableStatement(FeelParser.NamespaceVariableStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNamespaceConstantStatement(KParser.NamespaceConstantStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNamespaceConstantStatement(FeelParser.NamespaceConstantStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNamespaceFunctionStatement(KParser.NamespaceFunctionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNamespaceFunctionStatement(FeelParser.NamespaceFunctionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageStatement(KParser.PackageStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageStatement(FeelParser.PackageStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageStaticStatement(KParser.PackageStaticStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageStaticStatement(FeelParser.PackageStaticStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageStaticSupportStatement(KParser.PackageStaticSupportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageStaticSupportStatement(FeelParser.PackageStaticSupportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageStaticVariableStatement(KParser.PackageStaticVariableStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageStaticVariableStatement(FeelParser.PackageStaticVariableStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageStaticConstantStatement(KParser.PackageStaticConstantStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageStaticConstantStatement(FeelParser.PackageStaticConstantStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageStaticFunctionStatement(KParser.PackageStaticFunctionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageStaticFunctionStatement(FeelParser.PackageStaticFunctionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageFieldStatement(KParser.PackageFieldStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageFieldStatement(FeelParser.PackageFieldStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageSupportStatement(KParser.PackageSupportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageSupportStatement(FeelParser.PackageSupportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIncludeStatement(KParser.IncludeStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIncludeStatement(FeelParser.IncludeStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageNewStatement(KParser.PackageNewStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageNewStatement(FeelParser.PackageNewStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageVariableStatement(KParser.PackageVariableStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageVariableStatement(FeelParser.PackageVariableStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageConstantStatement(KParser.PackageConstantStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageConstantStatement(FeelParser.PackageConstantStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageFunctionStatement(KParser.PackageFunctionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageFunctionStatement(FeelParser.PackageFunctionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageControlSubStatement(KParser.PackageControlSubStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageControlSubStatement(FeelParser.PackageControlSubStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPackageEventStatement(KParser.PackageEventStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPackageEventStatement(FeelParser.PackageEventStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitImplementStatement(KParser.ImplementStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitImplementStatement(FeelParser.ImplementStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOverrideVariableStatement(KParser.OverrideVariableStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOverrideVariableStatement(FeelParser.OverrideVariableStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOverrideConstantStatement(KParser.OverrideConstantStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOverrideConstantStatement(FeelParser.OverrideConstantStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOverrideFunctionStatement(KParser.OverrideFunctionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOverrideFunctionStatement(FeelParser.OverrideFunctionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProtocolStatement(KParser.ProtocolStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProtocolStatement(FeelParser.ProtocolStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProtocolSubStatement(KParser.ProtocolSubStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProtocolSubStatement(FeelParser.ProtocolSubStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProtocolSupportStatement(KParser.ProtocolSupportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProtocolSupportStatement(FeelParser.ProtocolSupportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProtocolVariableStatement(KParser.ProtocolVariableStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProtocolVariableStatement(FeelParser.ProtocolVariableStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProtocolFunctionStatement(KParser.ProtocolFunctionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProtocolFunctionStatement(FeelParser.ProtocolFunctionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFunctionStatement(KParser.FunctionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFunctionStatement(FeelParser.FunctionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReturnStatement(KParser.ReturnStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitReturnStatement(FeelParser.ReturnStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReturnAsyncStatement(KParser.ReturnAsyncStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitReturnAsyncStatement(FeelParser.ReturnAsyncStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitYieldReturnStatement(KParser.YieldReturnStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitYieldReturnStatement(FeelParser.YieldReturnStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitYieldBreakStatement(KParser.YieldBreakStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitYieldBreakStatement(FeelParser.YieldBreakStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitParameterClauseIn(KParser.ParameterClauseInContext ctx) { return visitChildren(ctx); }
+	@Override public T visitParameterClauseIn(FeelParser.ParameterClauseInContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitParameterClauseOut(KParser.ParameterClauseOutContext ctx) { return visitChildren(ctx); }
+	@Override public T visitParameterClauseOut(FeelParser.ParameterClauseOutContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitParameter(KParser.ParameterContext ctx) { return visitChildren(ctx); }
+	@Override public T visitParameter(FeelParser.ParameterContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFunctionSupportStatement(KParser.FunctionSupportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFunctionSupportStatement(FeelParser.FunctionSupportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeCaseStatement(KParser.JudgeCaseStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeCaseStatement(FeelParser.JudgeCaseStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCaseStatement(KParser.CaseStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCaseStatement(FeelParser.CaseStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCaseExprStatement(KParser.CaseExprStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCaseExprStatement(FeelParser.CaseExprStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeStatement(KParser.JudgeStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeStatement(FeelParser.JudgeStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeElseStatement(KParser.JudgeElseStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeElseStatement(FeelParser.JudgeElseStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeIfStatement(KParser.JudgeIfStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeIfStatement(FeelParser.JudgeIfStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeElseIfStatement(KParser.JudgeElseIfStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeElseIfStatement(FeelParser.JudgeElseIfStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopStatement(KParser.LoopStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopStatement(FeelParser.LoopStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopEachStatement(KParser.LoopEachStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopEachStatement(FeelParser.LoopEachStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopCaseStatement(KParser.LoopCaseStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopCaseStatement(FeelParser.LoopCaseStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopElseStatement(KParser.LoopElseStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopElseStatement(FeelParser.LoopElseStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopJumpStatement(KParser.LoopJumpStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopJumpStatement(FeelParser.LoopJumpStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopContinueStatement(KParser.LoopContinueStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopContinueStatement(FeelParser.LoopContinueStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckStatement(KParser.CheckStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCheckStatement(FeelParser.CheckStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitUsingStatement(KParser.UsingStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitUsingStatement(FeelParser.UsingStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckErrorStatement(KParser.CheckErrorStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCheckErrorStatement(FeelParser.CheckErrorStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckFinallyStatment(KParser.CheckFinallyStatmentContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCheckFinallyStatment(FeelParser.CheckFinallyStatmentContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckReportStatement(KParser.CheckReportStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCheckReportStatement(FeelParser.CheckReportStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIteratorStatement(KParser.IteratorStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIteratorStatement(FeelParser.IteratorStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVariableDeclaredStatement(KParser.VariableDeclaredStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVariableDeclaredStatement(FeelParser.VariableDeclaredStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitConstantDeclaredStatement(KParser.ConstantDeclaredStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConstantDeclaredStatement(FeelParser.ConstantDeclaredStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVarStatement(KParser.VarStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVarStatement(FeelParser.VarStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBindStatement(KParser.BindStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBindStatement(FeelParser.BindStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAssignStatement(KParser.AssignStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAssignStatement(FeelParser.AssignStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpressionStatement(KParser.ExpressionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpressionStatement(FeelParser.ExpressionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationStatement(KParser.AnnotationStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationStatement(FeelParser.AnnotationStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVarId(KParser.VarIdContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVarId(FeelParser.VarIdContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitConstId(KParser.ConstIdContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConstId(FeelParser.ConstIdContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTupleExpression(KParser.TupleExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTupleExpression(FeelParser.TupleExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrimaryExpression(KParser.PrimaryExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrimaryExpression(FeelParser.PrimaryExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpression(KParser.ExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpression(FeelParser.ExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallExpression(KParser.CallExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallExpression(FeelParser.CallExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTuple(KParser.TupleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTuple(FeelParser.TupleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpressionList(KParser.ExpressionListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpressionList(FeelParser.ExpressionListContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationSupport(KParser.AnnotationSupportContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationSupport(FeelParser.AnnotationSupportContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotation(KParser.AnnotationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotation(FeelParser.AnnotationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationList(KParser.AnnotationListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationList(FeelParser.AnnotationListContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationItem(KParser.AnnotationItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationItem(FeelParser.AnnotationItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationString(KParser.AnnotationStringContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationString(FeelParser.AnnotationStringContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallFunc(KParser.CallFuncContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallFunc(FeelParser.CallFuncContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallAsync(KParser.CallAsyncContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallAsync(FeelParser.CallAsyncContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallAwait(KParser.CallAwaitContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallAwait(FeelParser.CallAwaitContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallChannel(KParser.CallChannelContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallChannel(FeelParser.CallChannelContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTransfer(KParser.TransferContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTransfer(FeelParser.TransferContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallElement(KParser.CallElementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallElement(FeelParser.CallElementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallPkg(KParser.CallPkgContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallPkg(FeelParser.CallPkgContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCallNew(KParser.CallNewContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallNew(FeelParser.CallNewContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOrElse(KParser.OrElseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOrElse(FeelParser.OrElseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeConversion(KParser.TypeConversionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeConversion(FeelParser.TypeConversionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeCheck(KParser.TypeCheckContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeCheck(FeelParser.TypeCheckContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPkgAssign(KParser.PkgAssignContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPkgAssign(FeelParser.PkgAssignContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPkgAssignElement(KParser.PkgAssignElementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPkgAssignElement(FeelParser.PkgAssignElementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitListAssign(KParser.ListAssignContext ctx) { return visitChildren(ctx); }
+	@Override public T visitListAssign(FeelParser.ListAssignContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDictionaryAssign(KParser.DictionaryAssignContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDictionaryAssign(FeelParser.DictionaryAssignContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitList(KParser.ListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitList(FeelParser.ListContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDictionary(KParser.DictionaryContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDictionary(FeelParser.DictionaryContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDictionaryElement(KParser.DictionaryElementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDictionaryElement(FeelParser.DictionaryElementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSlice(KParser.SliceContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSlice(FeelParser.SliceContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSliceFull(KParser.SliceFullContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSliceFull(FeelParser.SliceFullContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSliceStart(KParser.SliceStartContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSliceStart(FeelParser.SliceStartContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSliceEnd(KParser.SliceEndContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSliceEnd(FeelParser.SliceEndContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNameSpaceItem(KParser.NameSpaceItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNameSpaceItem(FeelParser.NameSpaceItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitName(KParser.NameContext ctx) { return visitChildren(ctx); }
+	@Override public T visitName(FeelParser.NameContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTemplateDefine(KParser.TemplateDefineContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTemplateDefine(FeelParser.TemplateDefineContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTemplateDefineItem(KParser.TemplateDefineItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTemplateDefineItem(FeelParser.TemplateDefineItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTemplateCall(KParser.TemplateCallContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTemplateCall(FeelParser.TemplateCallContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLambda(KParser.LambdaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLambda(FeelParser.LambdaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLambdaIn(KParser.LambdaInContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLambdaIn(FeelParser.LambdaInContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPkgAnonymous(KParser.PkgAnonymousContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPkgAnonymous(FeelParser.PkgAnonymousContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPkgAnonymousAssign(KParser.PkgAnonymousAssignContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPkgAnonymousAssign(FeelParser.PkgAnonymousAssignContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPkgAnonymousAssignElement(KParser.PkgAnonymousAssignElementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPkgAnonymousAssignElement(FeelParser.PkgAnonymousAssignElementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFunctionExpression(KParser.FunctionExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFunctionExpression(FeelParser.FunctionExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPlusMinus(KParser.PlusMinusContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPlusMinus(FeelParser.PlusMinusContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNegate(KParser.NegateContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNegate(FeelParser.NegateContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwiseNotExpression(KParser.BitwiseNotExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwiseNotExpression(FeelParser.BitwiseNotExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLinq(KParser.LinqContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLinq(FeelParser.LinqContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLinqHeadItem(KParser.LinqHeadItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLinqHeadItem(FeelParser.LinqHeadItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLinqItem(KParser.LinqItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLinqItem(FeelParser.LinqItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeExpression(KParser.JudgeExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeExpression(FeelParser.JudgeExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeExpressionElseStatement(KParser.JudgeExpressionElseStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeExpressionElseStatement(FeelParser.JudgeExpressionElseStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeExpressionIfStatement(KParser.JudgeExpressionIfStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeExpressionIfStatement(FeelParser.JudgeExpressionIfStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeExpressionElseIfStatement(KParser.JudgeExpressionElseIfStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeExpressionElseIfStatement(FeelParser.JudgeExpressionElseIfStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJudgeCaseExpression(KParser.JudgeCaseExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitJudgeCaseExpression(FeelParser.JudgeCaseExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCaseExpressionStatement(KParser.CaseExpressionStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCaseExpressionStatement(FeelParser.CaseExpressionStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopExpression(KParser.LoopExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopExpression(FeelParser.LoopExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopEachExpression(KParser.LoopEachExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopEachExpression(FeelParser.LoopEachExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLoopElseExpression(KParser.LoopElseExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLoopElseExpression(FeelParser.LoopElseExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckExpression(KParser.CheckExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCheckExpression(FeelParser.CheckExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckErrorExpression(KParser.CheckErrorExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCheckErrorExpression(FeelParser.CheckErrorExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDataStatement(KParser.DataStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDataStatement(FeelParser.DataStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitStringExpr(KParser.StringExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitStringExpr(FeelParser.StringExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitStringContent(KParser.StringContentContext ctx) { return visitChildren(ctx); }
+	@Override public T visitStringContent(FeelParser.StringContentContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitStringTemplate(KParser.StringTemplateContext ctx) { return visitChildren(ctx); }
+	@Override public T visitStringTemplate(FeelParser.StringTemplateContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRawStringExpr(KParser.RawStringExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRawStringExpr(FeelParser.RawStringExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRawStringContent(KParser.RawStringContentContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRawStringContent(FeelParser.RawStringContentContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRawStringTemplate(KParser.RawStringTemplateContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRawStringTemplate(FeelParser.RawStringTemplateContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFloatExpr(KParser.FloatExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFloatExpr(FeelParser.FloatExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIntegerExpr(KParser.IntegerExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIntegerExpr(FeelParser.IntegerExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeNotNull(KParser.TypeNotNullContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeNotNull(FeelParser.TypeNotNullContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeType(KParser.TypeTypeContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeType(FeelParser.TypeTypeContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeNullable(KParser.TypeNullableContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeNullable(FeelParser.TypeNullableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeArray(KParser.TypeArrayContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeArray(FeelParser.TypeArrayContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeList(KParser.TypeListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeList(FeelParser.TypeListContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeSet(KParser.TypeSetContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeSet(FeelParser.TypeSetContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeDictionary(KParser.TypeDictionaryContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeDictionary(FeelParser.TypeDictionaryContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeStack(KParser.TypeStackContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeStack(FeelParser.TypeStackContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeQueue(KParser.TypeQueueContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeQueue(FeelParser.TypeQueueContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeChannel(KParser.TypeChannelContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeChannel(FeelParser.TypeChannelContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypePackage(KParser.TypePackageContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypePackage(FeelParser.TypePackageContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeFunction(KParser.TypeFunctionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeFunction(FeelParser.TypeFunctionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeAny(KParser.TypeAnyContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeAny(FeelParser.TypeAnyContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeFunctionParameterClause(KParser.TypeFunctionParameterClauseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeFunctionParameterClause(FeelParser.TypeFunctionParameterClauseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeBasic(KParser.TypeBasicContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeBasic(FeelParser.TypeBasicContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNilExpr(KParser.NilExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNilExpr(FeelParser.NilExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBoolExpr(KParser.BoolExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBoolExpr(FeelParser.BoolExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwise(KParser.BitwiseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwise(FeelParser.BitwiseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwiseAnd(KParser.BitwiseAndContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwiseAnd(FeelParser.BitwiseAndContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwiseOr(KParser.BitwiseOrContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwiseOr(FeelParser.BitwiseOrContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwiseNot(KParser.BitwiseNotContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwiseNot(FeelParser.BitwiseNotContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwiseXor(KParser.BitwiseXorContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwiseXor(FeelParser.BitwiseXorContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwiseLeftShift(KParser.BitwiseLeftShiftContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwiseLeftShift(FeelParser.BitwiseLeftShiftContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBitwiseRightShift(KParser.BitwiseRightShiftContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBitwiseRightShift(FeelParser.BitwiseRightShiftContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCompareCombine(KParser.CompareCombineContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCompareCombine(FeelParser.CompareCombineContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCompare(KParser.CompareContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCompare(FeelParser.CompareContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogic(KParser.LogicContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLogic(FeelParser.LogicContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAssign(KParser.AssignContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAssign(FeelParser.AssignContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAdd(KParser.AddContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAdd(FeelParser.AddContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMul(KParser.MulContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMul(FeelParser.MulContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPow(KParser.PowContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPow(FeelParser.PowContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCall(KParser.CallContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCall(FeelParser.CallContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitWave(KParser.WaveContext ctx) { return visitChildren(ctx); }
+	@Override public T visitWave(FeelParser.WaveContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitId(KParser.IdContext ctx) { return visitChildren(ctx); }
+	@Override public T visitId(FeelParser.IdContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIdItem(KParser.IdItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIdItem(FeelParser.IdItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitEnd(KParser.EndContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEnd(FeelParser.EndContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMore(KParser.MoreContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMore(FeelParser.MoreContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLeft_brace(KParser.Left_braceContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLeft_brace(FeelParser.Left_braceContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRight_brace(KParser.Right_braceContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRight_brace(FeelParser.Right_braceContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLeft_paren(KParser.Left_parenContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLeft_paren(FeelParser.Left_parenContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRight_paren(KParser.Right_parenContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRight_paren(FeelParser.Right_parenContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLeft_brack(KParser.Left_brackContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLeft_brack(FeelParser.Left_brackContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRight_brack(KParser.Right_brackContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRight_brack(FeelParser.Right_brackContext ctx) { return visitChildren(ctx); }
 }

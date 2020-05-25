@@ -38,13 +38,10 @@ public class pack:software{
     public  fun  stop ():Unit{
     }
     public override val title:String
-
+            = ""
     public override var description:String
-
+            = ""
     public override fun  run ():Unit{
-    }
-    public constructor(){title=""
-        description=""
     }
 }
 public interface software{

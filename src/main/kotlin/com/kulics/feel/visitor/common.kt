@@ -1,6 +1,6 @@
-package com.kulics.k.visitor
+package com.kulics.feel.visitor
 
-import com.kulics.k.*
+import com.kulics.feel.*
 
 class Result {
     var data: any = ""

@@ -1,4 +1,4 @@
-package com.kulics.k.visitor
+package com.kulics.feel.visitor
 
 class KLangVisitor():TypeVisitor(){
 
